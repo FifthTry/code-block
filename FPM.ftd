@@ -1,0 +1,4 @@
+-- import: fpm
+
+-- fpm.package: fifthtry.github.io/code-block
+zip: github.com/fifthtry/code-block/archive/refs/heads/main.zip
