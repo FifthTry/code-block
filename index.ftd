@@ -1,5 +1,33 @@
 -- import: fpm
 
+
+-- ftd.text: Code Block Component for FPM Packages
+
+-- ftd.text:
+
+This is a re-usable component.
+
+-- ftd.code: Add this to FPM.ftd
+lang: ftd
+
+\-- fpm.dependency: fifthtry.github.io/code-block as cb
+
+-- ftd.code: Then use the component:
+lang: ftd
+
+\-- import: cb
+
+\-- cb.code:
+if: $caption is not null
+caption: $caption
+lang: $lang
+
+$body
+
+-- ftd.text: `lang`
+
+This is the file name extension.
+
 -- ftd.column code:
 optional caption caption:
 body body:
