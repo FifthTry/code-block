@@ -12,7 +12,7 @@ height: fill
 --- h1: Code Block Component for FPM Packages
 
 --- ftd.image:
-src: /images/code-block-sample.PNG 
+src: images/code-block-sample.PNG 
 width: auto
 padding-vertical: 50
 
