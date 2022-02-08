@@ -47,10 +47,38 @@ $body
 
 -- ftd.text: `lang` is the file name extension.
 
+-- ftd.text: `caption` is the the title/caption of code block.
+size: 20
+padding-bottom: 10
+
+-- ftd.text: `lang` is the file name extension.
+size: 20
+padding-bottom: 10
+
+-- ftd.text: `body` is main body of the code block.
+size: 20
+padding-bottom: 10
+
+-- h2: Usage: how to write
+
+-- code: How to write code block of image shown above
+lang: ftd
+
+\-- cb.code: hello world ftd
+lang: ftd
+
+\-- string msg: hello world
+\-- ftd.text: $msg
 
 
+-- h2: Output: of above code snippet
 
--- container: ftd.main
+-- code: hello world ftd
+lang: ftd
+
+\-- string msg: hello world
+\-- ftd.text: $msg
+
 
 
 -- ftd.column code:
