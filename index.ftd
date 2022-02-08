@@ -1,33 +1,43 @@
 -- import: fpm
 
+
 -- ftd.column:
+id: code-wrap
 width: fill
 align: center
 spacing: 20
 padding-horizontal: 50
 padding-vertical: 20
 background-color: #f5f5f5
-height: fill
 
---- h1: Code Block Component for FPM Packages
+-- h1: Code Block Component for FPM Packages
 
---- ftd.image:
+-- ftd.text: Output on browser will as below:
+padding-top: 20
+
+
+-- ftd.image:
 src: images/code-block-sample.PNG 
 width: auto
-padding-vertical: 50
+padding-top: 10
+padding-bottom: 40
 
---- ftd.text: How to add:
+-- h2: How to add: onto your project:
 
-This is a re-usable component.
 
---- ftd.code: Add this to FPM.ftd
+-- ftd.column:
+width: percent 50
+
+-- code: Add this to FPM.ftd
 lang: ftd
 
 \-- fpm.dependency: fifthtry.github.io/code-block as cb
 
---- ftd.code: Then use the component:
+
+-- code: Then use the component:
 lang: ftd
 
+\-- fpm.dependency: fifthtry.github.io/code-block as cb
 
 \-- import: cb
 
@@ -38,9 +48,13 @@ lang: $lang
 
 $body
 
---- ftd.text: `lang`
+-- ftd.text: `lang` is the file name extension.
 
-This is the file name extension.
+
+
+
+-- container: ftd.main
+
 
 -- ftd.column code:
 optional caption caption:
@@ -115,6 +129,26 @@ text: $title
 region: title
 size: 30
 line-height: 40
+color: #000
+color if $fpm.dark-mode: #fff
+style: bold
+padding-bottom: 8
+padding-top: 16
+font: apple-system
+
+-- ftd.column h2:
+caption title:
+optional body body:
+width: fill
+region: h2
+padding-bottom: 12
+
+--- ftd.text:
+caption $title:
+text: $title
+region: title
+size: 24
+line-height: 30
 color: #000
 color if $fpm.dark-mode: #fff
 style: bold
