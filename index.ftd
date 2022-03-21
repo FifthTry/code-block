@@ -1,5 +1,6 @@
 -- import: fpm
--- import: pd/doc as pd
+-- import: fifthtry.github.io/code-block/assets
+-- import: fifthtry.github.io/typography as tf
 
 -- ftd.column:
 id: code-wrap
@@ -8,9 +9,9 @@ align: center
 spacing: 20
 padding-horizontal: 50
 padding-vertical: 20
-background-color: #f5f5f5
+background-color: $fpm.design.color.brand.region
 
--- pd.package: Code Block Component for FPM Packages
+-- package: Code Block Component for FPM Packages
 name: fifthtry.github.io/code-block
 
 This package can be used to show source code in any document.
@@ -48,15 +49,15 @@ $body
 -- ftd.text: `lang` is the file name extension.
 
 -- ftd.text: `caption` is the the title/caption of code block.
-size: 20
+role: $fpm.design.type.body-medium
 padding-bottom: 10
 
 -- ftd.text: `lang` is the file name extension.
-size: 20
+role: $fpm.design.type.body-medium
 padding-bottom: 10
 
 -- ftd.text: `body` is main body of the code block.
-size: 20
+role: $fpm.design.type.body-medium
 padding-bottom: 10
 
 -- h2: Usage: how to write
@@ -81,6 +82,13 @@ lang: ftd
 
 
 
+
+
+
+
+
+
+
 -- ftd.column code:
 optional caption caption:
 body body:
@@ -92,30 +100,28 @@ width: fill
 --- ftd.text:
 text: $caption
 if: $caption is not null
-color: #DCDCDC
+role: $fpm.design.type.body-medium
+color: $fpm.design.color.brand.on-region
 width: fill
-size: 14
-background-color: #3a404e
+background-color: $fpm.design.color.brand.region
 padding-top: 10
 padding-bottom: 10
 padding-left: 20
 padding-right: 20
 border-top-radius: 4
-font: Open sans
 
 --- ftd.code:
 if: $fpm.dark-mode
 text: $body
 lang: $lang
-color: #4D4D4D
 width: fill
-size: 17
-line-height: 25
+role: $fpm.design.type.body-medium
+color: $fpm.design.color.brand.on-region
 padding-top: 10
 padding-left: 20
 padding-bottom: 10
 padding-right: 20
-background-color: #2b303b
+background-color: $fpm.design.color.brand.region
 border-top-radius if $caption is null: 4
 border-bottom-radius: 4
 border-width: 1
@@ -126,40 +132,59 @@ if: not $fpm.dark-mode
 theme: InspiredGitHub
 text: $body
 lang: $lang
-color: #4D4D4D
 width: fill
-size: 17
-line-height: 25
+role: $fpm.design.type.body-medium
+color: $fpm.design.color.brand.on-region
 padding-top: 10
 padding-left: 20
 padding-bottom: 10
 padding-right: 20
-background-color: white
+background-color: $fpm.design.color.brand.region
 border-top-radius if $caption is null: 4
 border-bottom-radius if $caption is null: 4
-border-color: grey
+border-color: $fpm.design.color.brand.on-region
 border-width: 1
 overflow-x: auto
+
+
+
+
+
+
+
+
+
 
 -- ftd.column h1:
 caption title:
 optional body body:
+boolean open: true
+append-at: inner
 width: fill
 region: h1
-padding-bottom: 12
+padding-left: 20
+border-left: 5
+border-color: $fpm.design.color.brand.on-secondary-action
+move-left: 25
+margin-bottom: 30
+$on-click$: toggle $open
 
 --- ftd.text:
 caption $title:
 text: $title
 region: title
-size: 30
-line-height: 40
-color: #000
-color if $fpm.dark-mode: #fff
-style: bold
+role: $fpm.design.type.headline-medium
+color: $fpm.design.color.brand.on-region
 padding-bottom: 8
-padding-top: 16
-font: apple-system
+
+
+
+
+
+
+
+
+
 
 -- ftd.column h2:
 caption title:
@@ -172,11 +197,100 @@ padding-bottom: 12
 caption $title:
 text: $title
 region: title
-size: 24
-line-height: 30
-color: #000
-color if $fpm.dark-mode: #fff
-style: bold
+role: $fpm.design.type.headline-small
+color: $fpm.design.color.brand.on-region
 padding-bottom: 8
 padding-top: 16
-font: apple-system
+
+
+
+
+
+
+
+
+
+-- ftd.column package:
+caption title:
+string name:
+body body:
+width: fill
+spacing: 20
+open: true
+
+--- ftd.row:
+anchor: window
+right: 50
+bottom: 100
+padding: 10
+background-color: $fpm.design.color.brand.region
+border-width: 1
+border-color: $fpm.design.color.brand.on-region
+border-radius: 4
+z-index: 99999999999999
+
+--- toggle:
+
+--- container: ftd.main
+
+--- tf.h0: $title
+
+--- kv: Package Name
+value: $name
+
+--- tf.markdown:
+
+$body
+
+
+
+
+
+
+
+
+
+
+-- ftd.row toggle:
+
+--- ftd.image:
+if: not $fpm.dark-mode
+src: $assets.files.static.icon.svg
+height: 18
+$on-click$: message-host enable-dark-mode
+align: center
+
+--- ftd.image:
+if:  $fpm.dark-mode
+src: $assets.files.static.icon-dark.svg
+height: 18
+$on-click$: message-host enable-light-mode
+align: center
+
+
+
+
+
+
+
+
+
+-- ftd.row kv:
+caption title:
+string value:
+padding: 10
+border-width: 1
+border-color: $fpm.design.color.brand.on-region
+spacing: 7
+width: fill
+background-color: $fpm.design.color.brand.region
+border-radius: 4
+
+--- ftd.text: $title
+role: $fpm.design.type.body-medium
+
+--- ftd.text: $value
+color: $fpm.design.color.brand.on-region
+role: $fpm.design.type.body-medium
+move-down: 2
+
