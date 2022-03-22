@@ -4,3 +4,4 @@
 zip: github.com/fifthtry/code-block/archive/refs/heads/main.zip
 
 -- fpm.dependency: fifthtry.github.io/package-doc as pd
+-- fpm.dependency: fifthtry.github.io/typography as tf
