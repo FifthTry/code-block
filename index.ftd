@@ -111,7 +111,24 @@ padding-right: 20
 border-top-radius: 4
 
 --- ftd.code:
-theme: InspiredGitHub
+if: $ftd.dark-mode
+text: $body
+lang: $lang
+width: fill
+role: $fpm.design.type.body-medium
+color: $fpm.design.color.brand.on-region
+padding-top: 10
+padding-left: 20
+padding-bottom: 10
+padding-right: 20
+background-color: $fpm.design.color.brand.region
+border-top-radius if $caption is null: 4
+border-bottom-radius: 4
+border-width: 1
+overflow-x: auto
+
+--- ftd.code:
+if: not $ftd.dark-mode
 text: $body
 lang: $lang
 width: fill
@@ -236,12 +253,18 @@ $body
 -- ftd.row toggle:
 
 --- ftd.image:
+if: not $ftd.dark-mode
 src: $assets.files.static.icon.svg
 height: 18
 $on-click$: message-host enable-dark-mode
 align: center
 
-
+--- ftd.image:
+if:  $ftd.dark-mode
+src: $assets.files.static.icon-dark.svg
+height: 18
+$on-click$: message-host enable-light-mode
+align: center
 
 
 
