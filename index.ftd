@@ -9,7 +9,7 @@ align: center
 spacing: 20
 padding-horizontal: 50
 padding-vertical: 20
-background-color: $fpm.design.color.brand.region
+background-color: $fpm.color.main.background.base
 
 -- package: Code Block Component for FPM Packages
 name: fifthtry.github.io/code-block
@@ -49,15 +49,15 @@ $body
 -- ftd.text: `lang` is the file name extension.
 
 -- ftd.text: `caption` is the the title/caption of code block.
-role: $fpm.design.type.body-medium
+role: $fpm.type.body-medium
 padding-bottom: 10
 
 -- ftd.text: `lang` is the file name extension.
-role: $fpm.design.type.body-medium
+role: $fpm.type.body-medium
 padding-bottom: 10
 
 -- ftd.text: `body` is main body of the code block.
-role: $fpm.design.type.body-medium
+role: $fpm.type.body-medium
 padding-bottom: 10
 
 -- h2: Usage: how to write
@@ -100,10 +100,10 @@ width: fill
 --- ftd.text:
 text: $caption
 if: $caption is not null
-role: $fpm.design.type.body-medium
-color: $fpm.design.color.brand.on-region
+role: $fpm.type.body-medium
+color: $fpm.color.main.text
 width: fill
-background-color: $fpm.design.color.brand.region
+background-color: $fpm.color.main.background.base
 padding-top: 10
 padding-bottom: 10
 padding-left: 20
@@ -115,13 +115,13 @@ if: $ftd.dark-mode
 text: $body
 lang: $lang
 width: fill
-role: $fpm.design.type.body-medium
-color: $fpm.design.color.brand.on-region
+role: $fpm.type.body-medium
+color: $fpm.color.main.text
 padding-top: 10
 padding-left: 20
 padding-bottom: 10
 padding-right: 20
-background-color: $fpm.design.color.brand.region
+background-color: $fpm.color.main.background.base
 border-top-radius if $caption is null: 4
 border-bottom-radius: 4
 border-width: 1
@@ -132,16 +132,16 @@ if: not $ftd.dark-mode
 text: $body
 lang: $lang
 width: fill
-role: $fpm.design.type.body-medium
-color: $fpm.design.color.brand.on-region
+role: $fpm.type.body-medium
+color: $fpm.color.main.text
 padding-top: 10
 padding-left: 20
 padding-bottom: 10
 padding-right: 20
-background-color: $fpm.design.color.brand.region
+background-color: $fpm.color.main.background.base
 border-top-radius if $caption is null: 4
 border-bottom-radius if $caption is null: 4
-border-color: $fpm.design.color.brand.on-region
+border-color: $fpm.color.main.text
 border-width: 1
 overflow-x: auto
 
@@ -163,7 +163,7 @@ width: fill
 region: h1
 padding-left: 20
 border-left: 5
-border-color: $fpm.design.color.brand.on-secondary-action
+border-color: $fpm.color.main.cta-secondary.text
 move-left: 25
 margin-bottom: 30
 $on-click$: toggle $open
@@ -172,8 +172,8 @@ $on-click$: toggle $open
 caption $title:
 text: $title
 region: title
-role: $fpm.design.type.headline-medium
-color: $fpm.design.color.brand.on-region
+role: $fpm.type.headline-medium
+color: $fpm.color.main.text
 padding-bottom: 8
 
 
@@ -196,8 +196,8 @@ padding-bottom: 12
 caption $title:
 text: $title
 region: title
-role: $fpm.design.type.headline-small
-color: $fpm.design.color.brand.on-region
+role: $fpm.type.headline-small
+color: $fpm.color.main.text
 padding-bottom: 8
 padding-top: 16
 
@@ -222,9 +222,9 @@ anchor: window
 right: 50
 bottom: 100
 padding: 10
-background-color: $fpm.design.color.brand.region
+background-color: $fpm.color.main.background.base
 border-width: 1
-border-color: $fpm.design.color.brand.on-region
+border-color: $fpm.color.main.text
 border-radius: 4
 z-index: 99999999999999
 
@@ -277,17 +277,17 @@ caption title:
 string value:
 padding: 10
 border-width: 1
-border-color: $fpm.design.color.brand.on-region
+border-color: $fpm.color.main.text
 spacing: 7
 width: fill
-background-color: $fpm.design.color.brand.region
+background-color: $fpm.color.main.background.base
 border-radius: 4
 
 --- ftd.text: $title
-role: $fpm.design.type.body-medium
+role: $fpm.type.body-medium
 
 --- ftd.text: $value
-color: $fpm.design.color.brand.on-region
-role: $fpm.design.type.body-medium
+color: $fpm.color.main.text
+role: $fpm.type.body-medium
 move-down: 2
 
