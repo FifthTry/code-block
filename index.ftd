@@ -125,6 +125,7 @@ background-color: $code-bg-dark
 border-top-radius if $caption is null: 4
 border-bottom-radius: 4
 border-width: 1
+border-color: $code-bg-dark
 overflow-x: auto
 
 --- ftd.code:
@@ -141,7 +142,7 @@ padding-right: 20
 background-color: $code-bg-light
 border-top-radius if $caption is null: 4
 border-bottom-radius if $caption is null: 4
-border-color: $fpm.color.main.text
+border-color: $code-bg-light
 border-width: 1
 overflow-x: auto
 
