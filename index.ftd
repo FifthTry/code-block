@@ -221,6 +221,7 @@ caption title:
 string name:
 body body:
 width: fill
+color: $fpm.color.main.text
 spacing: 20
 open: true
 
@@ -289,9 +290,11 @@ spacing: 7
 width: fill
 background-color: $fpm.color.main.background.base
 border-radius: 4
+color: $fpm.color.main.text
 
 --- ftd.text: $title
 role: $fpm.type.copy-relaxed
+color: $fpm.color.main.text
 
 --- ftd.text: $value
 color: $fpm.color.main.text
