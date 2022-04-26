@@ -49,15 +49,15 @@ $body
 -- ftd.text: `lang` is the file name extension.
 
 -- ftd.text: `caption` is the the title/caption of code block.
-role: $fpm.type.body-medium
+role: $fpm.type.copy-relaxed
 padding-bottom: 10
 
 -- ftd.text: `lang` is the file name extension.
-role: $fpm.type.body-medium
+role: $fpm.type.copy-relaxed
 padding-bottom: 10
 
 -- ftd.text: `body` is main body of the code block.
-role: $fpm.type.body-medium
+role: $fpm.type.copy-relaxed
 padding-bottom: 10
 
 -- h2: Usage: how to write
@@ -100,7 +100,7 @@ width: fill
 --- ftd.text:
 text: $caption
 if: $caption is not null
-role: $fpm.type.body-medium
+role: $fpm.type.copy-relaxed
 color: $fpm.color.main.text
 width: fill
 background-color: $fpm.color.main.background.step-2
@@ -115,7 +115,7 @@ if: $ftd.dark-mode
 text: $body
 lang: $lang
 width: fill
-role: $fpm.type.body-medium
+role: $fpm.type.copy-relaxed
 color: $fpm.color.main.text
 padding-top: 10
 padding-left: 20
@@ -133,7 +133,7 @@ if: not $ftd.dark-mode
 text: $body
 lang: $lang
 width: fill
-role: $fpm.type.body-medium
+role: $fpm.type.copy-relaxed
 color: $fpm.color.main.text
 padding-top: 10
 padding-left: 20
@@ -179,7 +179,7 @@ $on-click$: toggle $open
 caption $title:
 text: $title
 region: title
-role: $fpm.type.headline-medium
+role: $fpm.type.heading-medium
 color: $fpm.color.main.text
 padding-bottom: 8
 
@@ -203,7 +203,7 @@ padding-bottom: 12
 caption $title:
 text: $title
 region: title
-role: $fpm.type.headline-small
+role: $fpm.type.heading-small
 color: $fpm.color.main.text
 padding-bottom: 8
 padding-top: 16
@@ -291,10 +291,10 @@ background-color: $fpm.color.main.background.base
 border-radius: 4
 
 --- ftd.text: $title
-role: $fpm.type.body-medium
+role: $fpm.type.copy-relaxed
 
 --- ftd.text: $value
 color: $fpm.color.main.text
-role: $fpm.type.body-medium
+role: $fpm.type.copy-relaxed
 move-down: 2
 
