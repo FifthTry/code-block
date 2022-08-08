@@ -111,7 +111,6 @@ padding-right: 20
 border-top-radius: 4
 
 --- ftd.code:
-if: $ftd.dark-mode
 text: $body
 lang: $lang
 width: fill
@@ -121,29 +120,11 @@ padding-top: 10
 padding-left: 20
 padding-bottom: 10
 padding-right: 20
-background-color: $code-bg-dark
+background-color: $fpm.color.main.background.code
 border-top-radius if $caption is null: 4
 border-bottom-radius: 4
 border-width: 1
-border-color: $code-bg-dark
-overflow-x: auto
-
---- ftd.code:
-if: not $ftd.dark-mode
-text: $body
-lang: $lang
-width: fill
-role: $fpm.type.copy-relaxed
-color: $fpm.color.main.text
-padding-top: 10
-padding-left: 20
-padding-bottom: 10
-padding-right: 20
-background-color: $code-bg-light
-border-top-radius if $caption is null: 4
-border-bottom-radius if $caption is null: 4
-border-color: $code-bg-light
-border-width: 1
+border-color: $fpm.color.main.border
 overflow-x: auto
 
 
@@ -151,14 +132,8 @@ overflow-x: auto
 
 
 
--- ftd.color code-bg-light:
-light: #2b303b
-dark: #18181b
 
 
--- ftd.color code-bg-dark:
-light: #18181b
-dark: #2b303b
 
 
 -- ftd.column h1:
