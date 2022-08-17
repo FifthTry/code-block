@@ -93,9 +93,8 @@ lang: ftd
 optional caption caption:
 body body:
 string lang:
-padding-bottom: 12
-padding-top: 12
 width: fill
+margin-top: 16
 margin-bottom: 16
 
 --- ftd.text:
