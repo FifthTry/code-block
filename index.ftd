@@ -96,6 +96,7 @@ string lang:
 padding-bottom: 12
 padding-top: 12
 width: fill
+margin-bottom: 16
 
 --- ftd.text:
 text: $caption
