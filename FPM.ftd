@@ -2,7 +2,7 @@
 
 -- fpm.package: fifthtry.github.io/code-block
 zip: github.com/fifthtry/code-block/archive/refs/heads/main.zip
-base: https://raw.githubusercontent.com/fifthtry/code-block/main
+download-base-url: https://raw.githubusercontent.com/fifthtry/code-block/main
 
 -- fpm.dependency: fifthtry.github.io/package-doc as pd
 -- fpm.dependency: fifthtry.github.io/typography as tf
