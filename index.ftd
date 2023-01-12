@@ -269,7 +269,7 @@ border-radius.px: 4
 
 -- end: ftd.row
 
--- tf.h0: $package.title
+-- tf.h1: $package.title
 
 -- kv: Package Name
 value: $package.name
