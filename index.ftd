@@ -21,7 +21,7 @@ dark: #2b303b
 ;;id: code-wrap
 height: hug-content
 width: fill-container
-spacing.px: 20
+spacing.fixed.px: 20
 padding-horizontal.px: 24
 padding-vertical.px: 24
 background.solid: $inherited.colors.background.base
@@ -251,7 +251,7 @@ body body:
 
 -- ftd.column:
 width: fill-container
-spacing.px: 20
+spacing.fixed.px: 20
 ;;open: true
 
 -- ftd.row:
@@ -330,7 +330,7 @@ string value:
 padding.px: 10
 border-width.px: 1
 border-color: $inherited.colors.text
-spacing.px: 7
+spacing.fixed.px: 7
 width: fill-container
 background.solid: $inherited.colors.background.base
 border-radius.px: 4
