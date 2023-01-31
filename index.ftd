@@ -114,7 +114,7 @@ width: fill-container
 
 -- ftd.text: $code.caption
 if: {$code.caption != NULL}
-role: $inherited.types.copy-relaxed
+role: $inherited.types.copy-regular
 color: $inherited.colors.text
 width: fill-container
 background.solid: $inherited.colors.background.step-2
@@ -130,7 +130,7 @@ if: {$ftd.dark-mode}
 text: $code.body
 lang: $code.lang
 width: fill-container
-role: $inherited.types.copy-relaxed
+role: $inherited.types.copy-regular
 color: $inherited.colors.text
 padding-top.px: 10
 padding-left.px: 20
@@ -150,7 +150,7 @@ if: {!$ftd.dark-mode}
 text: $code.body
 lang: $code.lang
 width: fill-container
-role: $inherited.types.copy-relaxed
+role: $inherited.types.copy-regular
 color: $inherited.colors.text
 padding-top.px: 10
 padding-left.px: 20
@@ -336,12 +336,12 @@ background.solid: $inherited.colors.background.base
 border-radius.px: 4
 
 -- ftd.text: $kv.title
-role: $inherited.types.copy-relaxed
+role: $inherited.types.copy-regular
 color: $inherited.colors.text-strong
 
 -- ftd.text: $kv.value
 color: $inherited.colors.text
-role: $inherited.types.copy-relaxed
+role: $inherited.types.copy-regular
 ;;move-down: 2
 
 -- end: ftd.row
