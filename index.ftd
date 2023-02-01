@@ -1,4 +1,4 @@
--- import: fpm
+-- import: fastn
 -- import: fifthtry.github.io/code-block/assets
 -- import: fifthtry.github.io/typography as tf
 
@@ -26,7 +26,7 @@ padding-horizontal.px: 24
 padding-vertical.px: 24
 background.solid: $inherited.colors.background.base
 
--- package: Code Block Component for FPM Packages
+-- package: Code Block Component for FASTN Packages
 name: fifthtry.github.io/code-block
 
 This package can be used to show source code in any document.
@@ -40,15 +40,15 @@ color: $inherited.colors.text-strong
 -- ftd.column:
 width.fixed.percent: 50
 
--- code: Add this to FPM.ftd
+-- code: Add this to FASTN.ftd
 lang: ftd
 
-\-- fpm.dependency: fifthtry.github.io/code-block as cb
+\-- fastn.dependency: fifthtry.github.io/code-block as cb
 
 -- code: Then use the component:
 lang: ftd
 
-\-- fpm.dependency: fifthtry.github.io/code-block as cb
+\-- fastn.dependency: fifthtry.github.io/code-block as cb
 
 \-- import: cb
 

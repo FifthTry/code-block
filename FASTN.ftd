@@ -1,0 +1,7 @@
+-- import: fastn
+
+-- fastn.package: fifthtry.github.io/code-block
+download-base-url: https://raw.githubusercontent.com/fifthtry/code-block/main
+
+-- fastn.dependency: fifthtry.github.io/package-doc as pd
+-- fastn.dependency: fifthtry.github.io/typography as tf
