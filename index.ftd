@@ -117,7 +117,7 @@ if: {$code.caption != NULL}
 role: $inherited.types.copy-regular
 color: $inherited.colors.text
 width: fill-container
-background.solid: $inherited.colors.background.step-2
+background.solid: $inherited.colors.background.step-1
 padding-top.px: 10
 padding-bottom.px: 10
 padding-left.px: 20
@@ -126,7 +126,7 @@ border-top-left-radius.px: 4
 border-top-right-radius.px: 4
 
 -- ftd.code:
-if: {$ftd.dark-mode}
+if: { ftd.dark-mode }
 text: $code.body
 lang: $code.lang
 width: fill-container
@@ -141,12 +141,12 @@ border-top-left-radius.px if {$code.caption == NULL}: 4
 border-top-right-radius.px if {$code.caption == NULL}: 4
 border-bottom-left-radius.px: 4
 border-bottom-right-radius.px: 4
-border-width.px: 1
-border-color: $code-bg-dark
+;; border-width.px: 1
+;; border-color: $code-bg-dark
 overflow-x: auto
 
 -- ftd.code:
-if: {!$ftd.dark-mode}
+if: { !ftd.dark-mode}
 text: $code.body
 lang: $code.lang
 width: fill-container
@@ -156,14 +156,15 @@ padding-top.px: 10
 padding-left.px: 20
 padding-bottom.px: 10
 padding-right.px: 20
-background.solid: $code-bg-light
+background.solid: #eff1f5
 border-top-left-radius.px if {$code.caption == NULL}: 4
 border-top-right-radius.px if {$code.caption == NULL}: 4
 border-bottom-left-radius.px if {$code.caption == NULL}: 4
 border-bottom-right-radius.px if {$code.caption == NULL}: 4
-border-color: $code-bg-light
-border-width.px: 1
+border-color: $inherited.colors.background.step-1
+border-width.px: 0
 overflow-x: auto
+theme: base16-ocean.light
 
 -- end: ftd.column
 
@@ -296,14 +297,14 @@ $package.body
 -- ftd.row:
 
 -- ftd.image:
-if: {!$ftd.dark-mode}
+if: { !ftd.dark-mode }
 src: $assets.files.static.switch-mode-icon.svg
 height.fixed.px: 18
 ;;$on-click$: message-host enable-dark-mode
 align-self: center
 
 -- ftd.image:
-if: {$ftd.dark-mode}
+if: { ftd.dark-mode }
 src: $assets.files.static.switch-mode-icon-dark.svg
 height.fixed.px: 18
 ;;$on-click$: message-host enable-light-mode
