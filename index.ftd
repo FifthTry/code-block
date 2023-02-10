@@ -1,9 +1,9 @@
 -- import: fastn
 -- import: fifthtry.github.io/code-block/assets
+-- import: pd/doc as pd
+-- import: pd/forest-theme as ft
+-- import: pd/code-block as cb
 -- import: fifthtry.github.io/typography as tf
-
-
-
 
 -- ftd.color code-bg-light:
 light: #2b303b
@@ -17,83 +17,50 @@ dark: #2b303b
 
 
 
--- ftd.column:
-;;id: code-wrap
-height: hug-content
-width: fill-container
-spacing.fixed.px: 20
-padding-horizontal.px: 24
-padding-vertical.px: 24
-background.solid: $inherited.colors.background.base
+-- ft.page:
 
--- package: Code Block Component for FASTN Packages
+-- pd.package: Code Block Component for FASTN Packages
 name: fifthtry.github.io/code-block
 
-This package can be used to show source code in any document.
+The admonitions package(fifthtry.github.io/admonitions). Use `FTD` custom
+admonitions styles for your web pages.
 
--- ftd.text: Output on browser will as below:
-padding-top.px: 20
-color: $inherited.colors.text-strong
+How to use?
 
--- h2: How to add: onto your project:
-
--- ftd.column:
-width.fixed.percent: 50
-
--- code: Add this to FASTN.ftd
+-- cb.code: Add this to your FASTN.ftd
 lang: ftd
 
 \-- fastn.dependency: fifthtry.github.io/code-block as cb
 
--- code: Then use the component:
+\-- fastn.auto-import: cb
+
+-- pd.component: `cb.code` Basic usage example
+name: `-- cb.code:`
+
+Use below code snippet to use this admonitions component as cbox.
+
+-- cb.code: How to use
 lang: ftd
 
-\-- fastn.dependency: fifthtry.github.io/code-block as cb
-
-\-- import: cb
-
-\-- cb.code:
-if: $caption is not null
-caption: $caption
-lang: $lang
-
-$body
-
--- end: ftd.column
-
--- tf.markdown:
-
-- `lang` is the file name extension.
-
-- `caption` is the the title/caption of code block.
-
-- `lang` is the file name extension.
-
-- `body` is main body of the code block.
-
-
--- h2: Usage: how to write
-
--- code: How to write code block of image shown above
+\-- cb.code: Title for the code block
 lang: ftd
 
-\-- cb.code: hello world ftd
+\\-- ftd.text: Some title
+role: $inherited.types.copy-regular
+color: $inherited.colors.text
+
+-- tf.h3: Output of above example:
+
+
+-- code: Title for the code block
 lang: ftd
 
-\-- string msg: hello world
-\-- ftd.text: $msg
-
--- h2: Output: of above code snippet
-
--- code: hello world ftd
-lang: ftd
-
-\-- string msg: hello world
-\-- ftd.text: $msg
-
--- end: ftd.column
+\-- ftd.text: Some title
+role: $inherited.types.copy-regular
+color: $inherited.colors.text
 
 
+-- end: ft.page
 
 
 
@@ -178,173 +145,3 @@ theme: base16-ocean.light
 
 
 
-
--- component h1:
-caption title:
-optional body body:
-boolean open: true
-;;append-at: inner
-
--- ftd.column:
-width: fill-container
-region: h1
-padding-left.px: 20
-border-left.px: 5
-border-color: $inherited.colors.cta-secondary.text
-;;move-left: 25
-margin-bottom.px: 30
-;;$on-click$: toggle $open
-
--- ftd.text: $h1.title
-;;caption $title:
-;;region: title
-role: $inherited.types.heading-medium
-color: $inherited.colors.text
-padding-bottom.px: 8
-
--- end: ftd.column
-
--- end: h1
-
-
-
-
-
-
-
-
-
-
--- component h2:
-caption title:
-optional body body:
-
--- ftd.column:
-width: fill-container
-region: h2
-padding-bottom.px: 12
-
--- ftd.text: $h2.title
-;;caption $title:
-;;region: title
-role: $inherited.types.heading-small
-color: $inherited.colors.text
-padding-bottom.px: 8
-padding-top.px: 16
-
--- end: ftd.column
-
--- end: h2
-
-
-
-
-
-
-
-
-
-
--- component package:
-caption title:
-string name:
-body body:
-
--- ftd.column:
-width: fill-container
-spacing.fixed.px: 20
-;;open: true
-
--- ftd.row:
-anchor: window
-right.px: 50
-bottom.px: 100
-padding.px: 10
-background.solid: $inherited.colors.background.base
-border-width.px: 1
-border-color: $inherited.colors.text
-border-radius.px: 4
-;;z-index: 99999999999999
-
--- toggle:
-
--- end: ftd.row
-
--- tf.h1: $package.title
-
--- kv: Package Name
-value: $package.name
-
--- tf.markdown:
-
-$package.body
-
--- end: ftd.column
-
--- end: package
-
-
-
-
-
-
-
-
-
-
--- component toggle:
-
--- ftd.row:
-
--- ftd.image:
-if: { !ftd.dark-mode }
-src: $assets.files.static.switch-mode-icon.svg
-height.fixed.px: 18
-;;$on-click$: message-host enable-dark-mode
-align-self: center
-
--- ftd.image:
-if: { ftd.dark-mode }
-src: $assets.files.static.switch-mode-icon-dark.svg
-height.fixed.px: 18
-;;$on-click$: message-host enable-light-mode
-align-self: center
-
--- end: ftd.row
-
--- end: toggle
-
-
-
-
-
-
-
-
-
-
--- component kv:
-caption title:
-string value:
-
--- ftd.row:
-padding.px: 10
-border-width.px: 1
-border-color: $inherited.colors.text
-spacing.fixed.px: 7
-width: fill-container
-background.solid: $inherited.colors.background.base
-border-radius.px: 4
-
--- ftd.text: $kv.title
-role: $inherited.types.copy-regular
-color: $inherited.colors.text-strong
-
--- ftd.text: $kv.value
-color: $inherited.colors.text
-role: $inherited.types.copy-regular
-;;move-down: 2
-
--- end: ftd.row
-
--- end: kv
