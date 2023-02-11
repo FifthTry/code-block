@@ -22,7 +22,7 @@ dark: #2b303b
 -- pd.package: Code Block Component for FASTN Packages
 name: fifthtry.github.io/code-block
 
-The `code-block` package(fifthtry.github.io/code-block). Use inside `FTD` fields
+The `code-block` package(fifthtry.github.io/code-block). Use inside `FTD` files
 for your web pages.
 
 How to use?
