@@ -22,8 +22,8 @@ dark: #2b303b
 -- pd.package: Code Block Component for FASTN Packages
 name: fifthtry.github.io/code-block
 
-The admonitions package(fifthtry.github.io/admonitions). Use `FTD` custom
-admonitions styles for your web pages.
+The `code-block` package(fifthtry.github.io/code-block). Use inside `FTD` fields
+for your web pages.
 
 How to use?
 
@@ -37,7 +37,7 @@ lang: ftd
 -- pd.component: `cb.code` Basic usage example
 name: `-- cb.code:`
 
-Use below code snippet to use this admonitions component as cbox.
+Use below code snippet to use this code-block component as cb.
 
 -- cb.code: How to use
 lang: ftd
