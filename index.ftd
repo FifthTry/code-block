@@ -104,7 +104,7 @@ spacing.fixed.px: 10
 src: $assets.files.static.copy.png
 $on-click$: $ftd.copy-to-clipboard(a = $code.body)
 $on-click$: $ftd.set-string($a = $code.copy-text, v = Copied!)
-width.fixed.px: 20
+width.fixed.px: 18
 
 -- ftd.text: $code.copy-text
 role: $inherited.types.copy-regular
