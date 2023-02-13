@@ -101,14 +101,14 @@ width: fill-container
 spacing.fixed.px: 10
 
 -- ftd.image:
-src: $assets.files.static.copy.png
+src: $assets.files.static.copy.svg
 $on-click$: $ftd.copy-to-clipboard(a = $code.body)
 $on-click$: $ftd.set-string($a = $code.copy-text, v = Copied!)
 width.fixed.px: 18
 
 -- ftd.text: $code.copy-text
 role: $inherited.types.copy-regular
-color: $inherited.colors.text
+color: $inherited.colors.border
 
 -- end: ftd.row
 
