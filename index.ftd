@@ -76,6 +76,7 @@ body body:
 string lang:
 boolean clip: true
 string $copy-text: null
+boolean $mouse-in: false
 
 -- ftd.column:
 padding-bottom.px: 12
@@ -92,7 +93,6 @@ padding-left.px: 20
 padding-right.px: 20
 border-top-left-radius.px: 4
 border-top-right-radius.px: 4
-;;align-content: center
 
 -- ftd.text: $code.caption
 if: { $code.caption != NULL }
@@ -104,18 +104,20 @@ width: fill-container
 if: { code.clip }
 spacing.fixed.px: 10
 align-content: right
-width: fill-container
-$on-click-outside$: $ftd.set-string($a = $code.copy-text, v = null)
+$on-mouse-leave$: $ftd.set-string($a = $code.copy-text, v = null)
+$on-mouse-enter$: $ftd.set-bool($a = $code.mouse-in, v = true)
+$on-mouse-leave$: $ftd.set-bool($a = $code.mouse-in, v = false)
 
 -- ftd.image:
 if: { code.copy-text == "null" }
 src: $assets.files.static.copy.svg
+src if { code.mouse-in }: $assets.files.static.copy-hover.svg
 $on-click$: $ftd.copy-to-clipboard(a = $code.body)
 $on-click$: $ftd.set-string($a = $code.copy-text, v = Copied!)
 width.fixed.px: 18
 
 -- ftd.image:
-if: {code.copy-text != "null"}
+if: { code.copy-text != "null" }
 src: $assets.files.static.tick.svg
 width.fixed.px: 18
 
@@ -172,13 +174,3 @@ theme: base16-ocean.light
 -- end: ftd.column
 
 -- end: code
-
-
-
-
-
-
-
-
-
-
