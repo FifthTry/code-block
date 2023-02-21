@@ -28,7 +28,7 @@ for your web pages.
 
 How to use?
 
--- cb.code: Add this to your FASTN.ftd
+-- code: Add this to your FASTN.ftd
 lang: ftd
 
 \-- fastn.dependency: fifthtry.github.io/code-block as cb
@@ -40,7 +40,7 @@ name: `-- cb.code:`
 
 Use below code snippet to use this code-block component as cb.
 
--- cb.code: How to use
+-- code: How to use
 lang: ftd
 
 \-- cb.code: Title for the code block
@@ -49,6 +49,7 @@ lang: ftd
 \\-- ftd.text: Some title
 role: $inherited.types.copy-regular
 color: $inherited.colors.text
+
 
 -- tf.h3: Output of above example:
 
@@ -149,6 +150,7 @@ border-bottom-right-radius.px: 4
 ;; border-width.px: 1
 ;; border-color: $code-bg-dark
 overflow-x: auto
+max-height.fixed.px: 300
 
 -- ftd.code:
 if: { !ftd.dark-mode}
@@ -169,7 +171,9 @@ border-bottom-right-radius.px if {$code.caption == NULL}: 4
 border-color: $inherited.colors.background.step-1
 border-width.px: 0
 overflow-x: auto
+overflow-y: auto
 theme: base16-ocean.light
+max-height.fixed.px: 300
 
 -- end: ftd.column
 
