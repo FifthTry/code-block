@@ -3,7 +3,6 @@
 -- import: pd/doc as pd
 -- import: pd/forest-theme as ft
 -- import: pd/code-block as cb
--- import: fifthtry.github.io/typography as tf
 
 
 -- ftd.color code-bg-light:
@@ -62,6 +61,38 @@ role: $inherited.types.copy-regular
 color: $inherited.colors.text
 
 
+-- code: Additional attribute `copy`
+lang: ftd
+copy: false
+
+\-- cb.code: Title for the code block
+lang: ftd
+copy: false
+
+\-- ftd.text: Some title
+role: $inherited.types.copy-regular
+color: $inherited.colors.text
+
+-- tf.h3: `copy` false without title:
+
+-- code:
+lang: ftd
+copy: false
+
+\-- ftd.text: Some title
+role: $inherited.types.copy-regular
+color: $inherited.colors.text
+
+-- tf.h3: `copy` false with title:
+
+-- code: Title of the code block
+lang: ftd
+copy: false
+
+\-- ftd.text: Some title
+role: $inherited.types.copy-regular
+color: $inherited.colors.text
+
 -- end: ft.page
 
 
@@ -75,7 +106,7 @@ color: $inherited.colors.text
 optional caption caption:
 body body:
 string lang:
-boolean clip: true
+boolean copy: true
 string $copy-text: null
 boolean $mouse-in: false
 optional integer max-height:
@@ -88,6 +119,7 @@ width: fill-container
 
 
 -- ftd.row:
+if: { $code.caption != NULL || code.copy }
 width: fill-container
 background.solid: $inherited.colors.background.step-1
 padding-top.px: 10
@@ -111,7 +143,7 @@ width: fill-container
 -- end: ftd.row
 
 -- ftd.row:
-if: { code.clip }
+if: { code.copy }
 spacing.fixed.px: 10
 align-content: right
 align-self: end
