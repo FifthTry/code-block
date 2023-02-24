@@ -13,7 +13,11 @@ dark: #18181b
 light: #18181b
 dark: #2b303b
 
+-- void download-text(filename,text):
+string filename:
+string text:
 
+download_text(filename, text)
 
 
 
@@ -93,6 +97,22 @@ copy: false
 role: $inherited.types.copy-regular
 color: $inherited.colors.text
 
+-- tf.h3: Given `download` value with title:
+
+-- code: Title of the code block
+lang: ftd
+copy: true
+download: sample.txt
+
+\-- cb.code: Title for the code block
+lang: ftd
+copy: true
+download: sample.txt
+
+\-- ftd.text: Some title
+role: $inherited.types.copy-regular
+color: $inherited.colors.text
+
 -- end: ft.page
 
 
@@ -104,6 +124,7 @@ color: $inherited.colors.text
 
 -- component code:
 optional caption caption:
+optional string download:
 body body:
 string lang:
 boolean copy: true
@@ -119,7 +140,7 @@ width: fill-container
 
 
 -- ftd.row:
-if: { $code.caption != NULL || code.copy }
+if: { $code.caption != NULL || $code.download != NULL || code.copy }
 width: fill-container
 background.solid: $inherited.colors.background.step-1
 padding-top.px: 10
@@ -148,13 +169,13 @@ spacing.fixed.px: 10
 align-content: right
 align-self: end
 $on-mouse-leave$: $ftd.set-string($a = $code.copy-text, v = null)
-$on-mouse-enter$: $ftd.set-bool($a = $code.mouse-in, v = true)
-$on-mouse-leave$: $ftd.set-bool($a = $code.mouse-in, v = false)
 
 -- ftd.image:
 if: { code.copy-text == "null" }
 src: $assets.files.static.copy.svg
 src if { code.mouse-in }: $assets.files.static.copy-hover.svg
+$on-mouse-enter$: $ftd.set-bool($a = $code.mouse-in, v = true)
+$on-mouse-leave$: $ftd.set-bool($a = $code.mouse-in, v = false)
 $on-click$: $ftd.copy-to-clipboard(a = $code.body)
 $on-click$: $ftd.set-string($a = $code.copy-text, v = Copied!)
 width.fixed.px: 18
@@ -168,6 +189,14 @@ width.fixed.px: 18
 if: { code.copy-text != "null" }
 role: $inherited.types.copy-regular
 color: $inherited.colors.border
+
+-- ftd.image:
+if: { code.download != NULL }
+src: $assets.files.static.download.png
+width.fixed.px: 25
+height.fixed.px: 25
+padding-left.px: 5
+$on-click$: $download-text(filename = $code.download, text = $code.body)
 
 -- end: ftd.row
 
