@@ -102,12 +102,12 @@ color: $inherited.colors.text
 -- code: Title of the code block
 lang: ftd
 copy: true
-download: sample.txt
+download: sample.ftd
 
 \-- cb.code: Title for the code block
 lang: ftd
 copy: true
-download: sample.txt
+download: sample.ftd
 
 \-- ftd.text: Some title
 role: $inherited.types.copy-regular
@@ -130,6 +130,7 @@ string lang:
 boolean copy: true
 string $copy-text: null
 boolean $mouse-in: false
+boolean $download-mouse-in: false
 optional integer max-height:
 optional integer max-width:
 
@@ -190,12 +191,23 @@ if: { code.copy-text != "null" }
 role: $inherited.types.copy-regular
 color: $inherited.colors.border
 
+-- end: ftd.row
+
+-- ftd.row:
+if: { $code.download != NULL }
+align-content: right
+align-self: end
+padding-left.px: 10
+
 -- ftd.image:
 if: { code.download != NULL }
-src: $assets.files.static.download.png
+src: $assets.files.static.download.svg
+src if { code.download-mouse-in }: $assets.files.static.download-hover.svg
 width.fixed.px: 25
 height.fixed.px: 25
 padding-left.px: 5
+$on-mouse-enter$: $ftd.set-bool($a = $code.download-mouse-in, v = true)
+$on-mouse-leave$: $ftd.set-bool($a = $code.download-mouse-in, v = false)
 $on-click$: $download-text(filename = $code.download, text = $code.body)
 
 -- end: ftd.row
