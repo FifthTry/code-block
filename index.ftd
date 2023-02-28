@@ -64,8 +64,25 @@ lang: ftd
 role: $inherited.types.copy-regular
 color: $inherited.colors.text
 
+-- tf.h3: Additional attribute `download`:
 
--- code: Additional attribute `copy`
+-- code: Title of the code block
+lang: ftd
+copy: true
+download: sample.ftd
+
+\-- cb.code: Title for the code block
+lang: ftd
+copy: true
+download: sample.ftd
+
+\-- ftd.text: Some title
+role: $inherited.types.copy-regular
+color: $inherited.colors.text
+
+-- tf.h3: Additional attribute `copy`:
+
+-- code: Title for the code block
 lang: ftd
 copy: false
 
@@ -92,22 +109,6 @@ color: $inherited.colors.text
 -- code: Title of the code block
 lang: ftd
 copy: false
-
-\-- ftd.text: Some title
-role: $inherited.types.copy-regular
-color: $inherited.colors.text
-
--- tf.h3: Given `download` value with title:
-
--- code: Title of the code block
-lang: ftd
-copy: true
-download: sample.ftd
-
-\-- cb.code: Title for the code block
-lang: ftd
-copy: true
-download: sample.ftd
 
 \-- ftd.text: Some title
 role: $inherited.types.copy-regular
