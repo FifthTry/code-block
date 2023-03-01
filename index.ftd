@@ -108,8 +108,52 @@ color: $inherited.colors.text
 
 -- code: Some title
 lang: ftd
+copy: false
+
+
+\-- ftd.text: Some title
+role: $inherited.types.copy-regular
+color: $inherited.colors.text
+
+-- tf.h3: `copy` true without title:
+
+-- code: 
+lang: ftd
 copy: true
-download: gg.ftd
+
+
+\-- ftd.text: Some title
+role: $inherited.types.copy-regular
+color: $inherited.colors.text
+
+-- tf.h3: `download` attribute  without title:
+
+-- code: 
+lang: ftd
+copy: false
+download: sample.ftd
+
+\-- ftd.text: Some title
+role: $inherited.types.copy-regular
+color: $inherited.colors.text
+
+-- tf.h3: `download` attribute  and `copy` true  without title:
+
+-- code: 
+lang: ftd
+copy: true
+download: sample.ftd
+
+\-- ftd.text: Some title
+role: $inherited.types.copy-regular
+color: $inherited.colors.text
+
+-- tf.h3: `download` attribute  and `copy` true  with title:
+
+-- code: Some title
+lang: ftd
+copy: true
+download: sample.ftd
 
 \-- ftd.text: Some title
 role: $inherited.types.copy-regular
