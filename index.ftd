@@ -106,9 +106,10 @@ color: $inherited.colors.text
 
 -- tf.h3: `copy` false with title:
 
--- code: Title of the code block
+-- code: Some title
 lang: ftd
-copy: false
+copy: true
+download: gg.ftd
 
 \-- ftd.text: Some title
 role: $inherited.types.copy-regular
@@ -145,15 +146,16 @@ width: fill-container
 if: { $code.caption != NULL || $code.download != NULL || code.copy }
 width: fill-container
 background.solid: $inherited.colors.background.step-1
-padding-top.px: 10
-padding-bottom.px: 10
-padding-left.px: 20
-padding-right.px: 20
+padding-top.px if { $code.caption != NULL }: 10
+padding-bottom.px if { $code.caption != NULL }: 10
+padding-left.px if { $code.caption != NULL }: 20
+padding-right.px if { $code.caption != NULL }: 20
 border-top-left-radius.px: 4
 border-top-right-radius.px: 4
 max-width.fixed.px if { code.max-width != NULL }: $code.max-width
 
 -- ftd.row:
+if: { $code.caption != NULL }
 align-self: start
 width: fill-container
 
@@ -171,6 +173,11 @@ spacing.fixed.px: 10
 align-content: right
 align-self: end
 $on-mouse-leave$: $ftd.set-string($a = $code.copy-text, v = null)
+anchor: parent
+top.px: 12
+right.px: 20
+right.px if {code.download!= NULL}: 56
+
 
 -- ftd.image:
 if: { code.copy-text == "null" }
@@ -181,6 +188,7 @@ $on-mouse-leave$: $ftd.set-bool($a = $code.mouse-in, v = false)
 $on-click$: $ftd.copy-to-clipboard(a = $code.body)
 $on-click$: $ftd.set-string($a = $code.copy-text, v = Copied!)
 width.fixed.px: 18
+
 
 -- ftd.image:
 if: { code.copy-text != "null" }
@@ -199,14 +207,17 @@ if: { $code.download != NULL }
 align-content: right
 align-self: end
 padding-left.px: 10
+anchor: parent
+top.px: 12
+right.px: 20
+
 
 -- ftd.image:
 if: { code.download != NULL }
 src: $assets.files.static.download.svg
 src if { code.download-mouse-in }: $assets.files.static.download-hover.svg
-width.fixed.px: 25
-height.fixed.px: 25
-padding-left.px: 5
+width.fixed.px: 20
+height.fixed.px: 20
 $on-mouse-enter$: $ftd.set-bool($a = $code.download-mouse-in, v = true)
 $on-mouse-leave$: $ftd.set-bool($a = $code.download-mouse-in, v = false)
 $on-click$: $download-text(filename = $code.download, text = $code.body)
