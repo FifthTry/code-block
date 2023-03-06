@@ -242,27 +242,22 @@ color: $inherited.colors.border
 
 -- end: ftd.row
 
--- ftd.row:
-if: { code.download != NULL }
-align-content: right
-align-self: end
-padding-left.px: 10
-anchor: parent
-top.px: 12
-right.px: 20
 
 
 -- ftd.image:
-if: { code.download != NULL }
+if: { code.download != NULL  && code.mouse-in }
 src: $assets.files.static.download.svg
 src if { code.download-mouse-in }: $assets.files.static.download-hover.svg
 width.fixed.px: 20
 height.fixed.px: 20
+align-self: end
+anchor: parent
+top.px: 12
+right.px: 20
 $on-mouse-enter$: $ftd.set-bool($a = $code.download-mouse-in, v = true)
 $on-mouse-leave$: $ftd.set-bool($a = $code.download-mouse-in, v = false)
 $on-click$: $download-text(filename = $code.download, text = $code.body)
 
--- end: ftd.row
 
 -- end: ftd.row
 
@@ -278,18 +273,16 @@ padding-left.px: 20
 padding-bottom.px: 10
 padding-right.px: 20
 background.solid: $code-bg-dark
-border-top-left-radius.px if {$code.caption == NULL}: 4
-border-top-right-radius.px if {$code.caption == NULL}: 4
+border-top-left-radius.px if { code.caption == NULL }: 4
+border-top-right-radius.px if { code.caption == NULL }: 4
 border-bottom-left-radius.px: 4
 border-bottom-right-radius.px: 4
-;; border-width.px: 1
-;; border-color: $code-bg-dark
 overflow-x: auto
 max-height.fixed.px if { code.max-height != NULL }: $code.max-height
 max-width.fixed.px if { code.max-width != NULL }: $code.max-width
 
 -- ftd.code:
-if: { !ftd.dark-mode}
+if: { !ftd.dark-mode }
 text: $code.body
 lang: $code.lang
 width: fill-container
@@ -300,10 +293,10 @@ padding-left.px: 20
 padding-bottom.px: 10
 padding-right.px: 20
 background.solid: #eff1f5
-border-top-left-radius.px if {$code.caption == NULL}: 4
-border-top-right-radius.px if {$code.caption == NULL}: 4
-border-bottom-left-radius.px if {$code.caption == NULL}: 4
-border-bottom-right-radius.px if {$code.caption == NULL}: 4
+border-top-left-radius.px if { code.caption == NULL }: 4
+border-top-right-radius.px if { code.caption == NULL }: 4
+border-bottom-left-radius.px if { code.caption == NULL }: 4
+border-bottom-right-radius.px if { code.caption == NULL }: 4
 border-color: $inherited.colors.background.step-1
 border-width.px: 0
 overflow-x: auto
