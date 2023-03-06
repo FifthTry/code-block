@@ -175,8 +175,9 @@ body body:
 string lang:
 boolean copy: true
 string $copy-text: null
-boolean $mouse-in: false
+boolean $copy-mouse-in: false
 boolean $download-mouse-in: false
+boolean $mouse-in: false
 optional integer max-height:
 optional integer max-width:
 
@@ -184,32 +185,27 @@ optional integer max-width:
 padding-bottom.px: 12
 padding-top.px: 12
 width: fill-container
-
+$on-mouse-enter$: $ftd.set-bool($a = $code.mouse-in, v = true)
+$on-mouse-leave$: $ftd.set-bool($a = $code.mouse-in, v = false)
 
 -- ftd.row:
-if: { $code.caption != NULL || $code.download != NULL || code.copy }
+if: { code.caption != NULL || code.download != NULL || code.copy }
 width: fill-container
 background.solid: $inherited.colors.background.step-1
-padding-top.px if { $code.caption != NULL }: 10
-padding-bottom.px if { $code.caption != NULL }: 10
-padding-left.px if { $code.caption != NULL }: 20
-padding-right.px if { $code.caption != NULL }: 20
+padding-top.px if { code.caption != NULL }: 10
+padding-bottom.px if { code.caption != NULL }: 10
+padding-left.px if { code.caption != NULL }: 20
+padding-right.px if { code.caption != NULL }: 20
 border-top-left-radius.px: 4
 border-top-right-radius.px: 4
 max-width.fixed.px if { code.max-width != NULL }: $code.max-width
 
--- ftd.row:
-if: { $code.caption != NULL }
-align-self: start
-width: fill-container
-
 -- ftd.text: $code.caption
-if: { $code.caption != NULL }
+if: { code.caption != NULL }
 role: $inherited.types.copy-regular
 color: $inherited.colors.text
+align-self: start
 width: fill-container
-
--- end: ftd.row
 
 -- ftd.row:
 if: { code.copy }
@@ -220,15 +216,15 @@ $on-mouse-leave$: $ftd.set-string($a = $code.copy-text, v = null)
 anchor: parent
 top.px: 12
 right.px: 20
-right.px if {code.download!= NULL}: 56
+right.px if { code.download != NULL }: 56
 
 
 -- ftd.image:
-if: { code.copy-text == "null" }
+if: { code.copy-text == "null" && code.mouse-in }
 src: $assets.files.static.copy.svg
-src if { code.mouse-in }: $assets.files.static.copy-hover.svg
-$on-mouse-enter$: $ftd.set-bool($a = $code.mouse-in, v = true)
-$on-mouse-leave$: $ftd.set-bool($a = $code.mouse-in, v = false)
+src if { code.copy-mouse-in }: $assets.files.static.copy-hover.svg
+$on-mouse-enter$: $ftd.set-bool($a = $code.copy-mouse-in, v = true)
+$on-mouse-leave$: $ftd.set-bool($a = $code.copy-mouse-in, v = false)
 $on-click$: $ftd.copy-to-clipboard(a = $code.body)
 $on-click$: $ftd.set-string($a = $code.copy-text, v = Copied!)
 width.fixed.px: 18
@@ -247,7 +243,7 @@ color: $inherited.colors.border
 -- end: ftd.row
 
 -- ftd.row:
-if: { $code.download != NULL }
+if: { code.download != NULL }
 align-content: right
 align-self: end
 padding-left.px: 10
