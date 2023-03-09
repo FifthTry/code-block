@@ -5,13 +5,6 @@
 -- import: pd/code-block as cb
 
 
--- ftd.color code-bg-light:
-light: #2b303b
-dark: #18181b
-
--- ftd.color code-bg-dark:
-light: #18181b
-dark: #2b303b
 
 -- void download-text(filename,text):
 string filename:
@@ -148,18 +141,58 @@ download: sample.ftd
 role: $inherited.types.copy-regular
 color: $inherited.colors.text
 
--- tf.h3: `download` attribute  and `copy` true  with title:
+-- tf.h3: Using `rendered` component
 
--- code: Some title
+We have introduced `rendered` component, which you can use to show rendered output
+of your code including it in `rendered.input` as body of `rendered` component.
+
+How to use:
+
+-- code:
 lang: ftd
+
+\-- rendered:
 copy: true
 download: sample.ftd
+
+\-- rendered.input:
 
 \-- ftd.text: Some title
 role: $inherited.types.copy-regular
 color: $inherited.colors.text
 
+\-- rendered.output:
+
+\-- ftd.text: Some title - rendered
+role: $inherited.types.copy-regular
+color: $inherited.colors.text
+
+
+-- tf.markdown:
+
+Output of `rendered` component:
+
+-- rendered:
+copy: true
+download: sample.ftd
+
+-- rendered.input:
+
+\-- ftd.text: Some title
+role: $inherited.types.copy-regular
+color: $inherited.colors.text
+
+-- rendered.output:
+
+-- ftd.text: Some title
+role: $inherited.types.copy-regular
+color: $inherited.colors.text
+
+-- end: rendered.output
+
 -- end: ft.page
+
+
 
 
 
@@ -187,6 +220,7 @@ padding-top.px: 12
 width: fill-container
 $on-mouse-enter$: $ftd.set-bool($a = $code.mouse-in, v = true)
 $on-mouse-leave$: $ftd.set-bool($a = $code.mouse-in, v = false)
+cursor: default
 
 -- ftd.row:
 if: { code.caption != NULL || code.download != NULL || code.copy }
@@ -218,7 +252,6 @@ top.px: 12
 right.px: 20
 right.px if { code.download != NULL }: 56
 
-
 -- ftd.image:
 if: { code.copy-text == "null" && code.mouse-in }
 src: $assets.files.static.copy.svg
@@ -228,7 +261,6 @@ $on-mouse-leave$: $ftd.set-bool($a = $code.copy-mouse-in, v = false)
 $on-click$: $ftd.copy-to-clipboard(a = $code.body)
 $on-click$: $ftd.set-string($a = $code.copy-text, v = Copied!)
 width.fixed.px: 18
-
 
 -- ftd.image:
 if: { code.copy-text != "null" }
@@ -241,8 +273,6 @@ role: $inherited.types.copy-regular
 color: $inherited.colors.border
 
 -- end: ftd.row
-
-
 
 -- ftd.image:
 if: { code.download != NULL  && code.mouse-in }
@@ -258,11 +288,9 @@ $on-mouse-enter$: $ftd.set-bool($a = $code.download-mouse-in, v = true)
 $on-mouse-leave$: $ftd.set-bool($a = $code.download-mouse-in, v = false)
 $on-click$: $download-text(filename = $code.download, text = $code.body)
 
-
 -- end: ftd.row
 
 -- ftd.code:
-if: { ftd.dark-mode }
 text: $code.body
 lang: $code.lang
 width: fill-container
@@ -272,39 +300,171 @@ padding-top.px: 10
 padding-left.px: 20
 padding-bottom.px: 10
 padding-right.px: 20
-background.solid: $code-bg-dark
-border-top-left-radius.px if { code.caption == NULL }: 4
-border-top-right-radius.px if { code.caption == NULL }: 4
-border-bottom-left-radius.px: 4
-border-bottom-right-radius.px: 4
-overflow-x: auto
-max-height.fixed.px if { code.max-height != NULL }: $code.max-height
-max-width.fixed.px if { code.max-width != NULL }: $code.max-width
-
--- ftd.code:
-if: { !ftd.dark-mode }
-text: $code.body
-lang: $code.lang
-width: fill-container
-role: $inherited.types.copy-regular
-color: $inherited.colors.text
-padding-top.px: 10
-padding-left.px: 20
-padding-bottom.px: 10
-padding-right.px: 20
-background.solid: #eff1f5
+background.solid: $inherited.colors.background.code
 border-top-left-radius.px if { code.caption == NULL }: 4
 border-top-right-radius.px if { code.caption == NULL }: 4
 border-bottom-left-radius.px if { code.caption == NULL }: 4
 border-bottom-right-radius.px if { code.caption == NULL }: 4
-border-color: $inherited.colors.background.step-1
-border-width.px: 0
 overflow-x: auto
 overflow-y: auto
-theme: base16-ocean.light
 max-height.fixed.px if { code.max-height != NULL }: $code.max-height
 max-width.fixed.px if { code.max-width != NULL }: $code.max-width
+
+-- ftd.column:
+if: {$code.download != NULL}
+anchor: parent
+right.px: 0
+bottom.px: 12
+z-index: 999
+padding.px: 6
+border-bottom-right-radius.px: 4
+
+-- ftd.text: $code.download
+role: $inherited.types.fine-print
+color: $inherited.colors.text
+
+-- end: ftd.column
 
 -- end: ftd.column
 
 -- end: code
+
+
+
+
+
+
+
+
+
+
+
+
+-- component rendered:
+optional string download:
+body input:
+boolean copy: true
+string $copy-text: null
+boolean $copy-mouse-in: false
+boolean $download-mouse-in: false
+boolean $mouse-in: false
+optional integer max-height:
+optional integer max-width:
+ftd.ui list output:
+
+-- ftd.column:
+width: fill-container
+
+-- ftd.text: Input:
+role: $inherited.types.copy-regular
+color: $inherited.colors.text
+
+-- ftd.column:
+padding-bottom.px: 12
+padding-top.px: 12
+width: fill-container
+$on-mouse-enter$: $ftd.set-bool($a = $rendered.mouse-in, v = true)
+$on-mouse-leave$: $ftd.set-bool($a = $rendered.mouse-in, v = false)
+cursor: default
+
+-- ftd.row:
+if: { rendered.copy }
+spacing.fixed.px: 10
+align-content: right
+align-self: end
+$on-mouse-leave$: $ftd.set-string($a = $rendered.copy-text, v = null)
+anchor: parent
+top.px: 12
+right.px: 20
+right.px if { rendered.download != NULL }: 56
+
+-- ftd.image:
+if: { rendered.copy-text == "null" && rendered.mouse-in }
+src: $assets.files.static.copy.svg
+src if { rendered.copy-mouse-in }: $assets.files.static.copy-hover.svg
+$on-mouse-enter$: $ftd.set-bool($a = $rendered.copy-mouse-in, v = true)
+$on-mouse-leave$: $ftd.set-bool($a = $rendered.copy-mouse-in, v = false)
+$on-click$: $ftd.copy-to-clipboard(a = $rendered.input)
+$on-click$: $ftd.set-string($a = $rendered.copy-text, v = Copied!)
+width.fixed.px: 18
+
+-- ftd.image:
+if: { rendered.copy-text != "null" }
+src: $assets.files.static.tick.svg
+width.fixed.px: 18
+
+-- ftd.text: $rendered.copy-text
+if: { rendered.copy-text != "null" }
+role: $inherited.types.copy-regular
+color: $inherited.colors.border
+
+-- end: ftd.row
+
+-- ftd.image:
+if: { rendered.download != NULL  && rendered.mouse-in }
+src: $assets.files.static.download.svg
+src if { rendered.download-mouse-in }: $assets.files.static.download-hover.svg
+width.fixed.px: 20
+height.fixed.px: 20
+align-self: end
+anchor: parent
+top.px: 12
+right.px: 20
+$on-mouse-enter$: $ftd.set-bool($a = $rendered.download-mouse-in, v = true)
+$on-mouse-leave$: $ftd.set-bool($a = $rendered.download-mouse-in, v = false)
+$on-click$: $download-text(filename = $rendered.download, text = $rendered.input)
+
+
+-- ftd.code:
+text: $rendered.input
+lang: ftd
+width: fill-container
+role: $inherited.types.copy-regular
+color: $inherited.colors.text
+padding-top.px: 10
+padding-left.px: 20
+padding-bottom.px: 10
+padding-right.px: 20
+background.solid: $inherited.colors.background.code
+border-top-left-radius.px: 4
+border-top-right-radius.px: 4
+border-bottom-left-radius.px: 4
+border-bottom-right-radius.px: 4
+overflow-x: auto
+overflow-y: auto
+max-height.fixed.px if { rendered.max-height != NULL }: $rendered.max-height
+max-width.fixed.px if { rendered.max-width != NULL }: $rendered.max-width
+
+-- ftd.column:
+if: {$rendered.download != NULL}
+anchor: parent
+right.px: 0
+bottom.px: 12
+z-index: 999
+padding.px: 6
+border-bottom-right-radius.px: 4
+
+-- ftd.text: $rendered.download
+role: $inherited.types.fine-print
+color: $inherited.colors.text
+
+-- end: ftd.column
+
+
+-- end: ftd.column
+
+-- ftd.text: Rendered:
+role: $inherited.types.copy-regular
+color: $inherited.colors.text
+
+-- ftd.column:
+children: $rendered.output
+margin-top.px: 24
+
+-- end: ftd.column
+
+-- end: ftd.column
+
+
+
+-- end: rendered
