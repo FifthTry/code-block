@@ -458,8 +458,13 @@ role: $inherited.types.copy-regular
 color: $inherited.colors.text
 
 -- ftd.column:
+width: fill-container
+padding.px: 10
 children: $rendered.output
 margin-top.px: 24
+border-width.px: 1
+border-color: $inherited.colors.border
+border-radius.px: 4
 
 -- end: ftd.column
 
