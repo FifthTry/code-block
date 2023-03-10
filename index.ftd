@@ -13,6 +13,10 @@ string text:
 download_text(filename, text)
 
 
+-- ftd.color filename:
+light: #a3be8c
+dark: #a3be8c
+
 
 -- ft.page:
 
@@ -354,14 +358,21 @@ ftd.ui list output:
 
 -- ftd.column:
 width: fill-container
+;;background.solid: $inherited.colors.background.overlay
+padding.px: 10
+;;border-color: $inherited.colors.border
+;;border-width.px: 1
 
 -- ftd.text: Input:
 role: $inherited.types.copy-regular
 color: $inherited.colors.text
+padding-bottom.px: 10
+width: fill-container
+border-color: $inherited.colors.border
+border-bottom-width.px: 1
+margin-bottom.px: 10
 
 -- ftd.column:
-padding-bottom.px: 12
-padding-top.px: 12
 width: fill-container
 $on-mouse-enter$: $ftd.set-bool($a = $rendered.mouse-in, v = true)
 $on-mouse-leave$: $ftd.set-bool($a = $rendered.mouse-in, v = false)
@@ -439,7 +450,7 @@ max-width.fixed.px if { rendered.max-width != NULL }: $rendered.max-width
 if: {$rendered.download != NULL}
 anchor: parent
 right.px: 0
-bottom.px: 12
+bottom.px: 0
 z-index: 999
 padding.px: 6
 border-bottom-right-radius.px: 4
@@ -456,15 +467,17 @@ color: $inherited.colors.text
 -- ftd.text: Rendered:
 role: $inherited.types.copy-regular
 color: $inherited.colors.text
+padding-bottom.px: 10
+border-bottom-width.px: 1
+width: fill-container
+border-color: $inherited.colors.border
+margin-bottom.px: 10
+margin-top.px: 24
 
 -- ftd.column:
 width: fill-container
-padding.px: 10
 children: $rendered.output
-margin-top.px: 24
-border-width.px: 1
-border-color: $inherited.colors.border
-border-radius.px: 4
+background.solid: $inherited.colors.background.step-1
 
 -- end: ftd.column
 
