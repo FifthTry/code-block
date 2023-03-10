@@ -306,6 +306,9 @@ color: $inherited.colors.text
 role: $inherited.types.copy-regular
 color: $inherited.colors.text
 
+\-- end: rendered.output
+
+\-- end: rendered
 
 -- tf.markdown:
 
