@@ -13,10 +13,6 @@ string text:
 download_text(filename, text)
 
 
--- ftd.color filename:
-light: #a3be8c
-dark: #a3be8c
-
 
 -- ft.page:
 
@@ -40,8 +36,9 @@ name: `-- cb.code:`
 
 Use below code snippet to use this code-block component as cb.
 
--- code: How to use
-lang: ftd
+-- rendered:
+
+-- rendered.input:
 
 \-- cb.code: Title for the code block
 lang: ftd
@@ -51,8 +48,7 @@ role: $inherited.types.copy-regular
 color: $inherited.colors.text
 
 
--- tf.h3: Output of above example:
-
+-- rendered.output:
 
 -- code: Title for the code block
 lang: ftd
@@ -61,29 +57,77 @@ lang: ftd
 role: $inherited.types.copy-regular
 color: $inherited.colors.text
 
+-- end: rendered.output
+
+-- end: rendered
+
+
 -- tf.h3: Additional attribute `download`:
+
+-- rendered:
+
+-- rendered.input:
+
+\-- cb.code: Title for the code block
+lang: ftd
+copy: true
+download: sample.ftd
+
+\-- ftd.text: Some title
+role: $inherited.types.copy-regular
+color: $inherited.colors.text
+
+-- rendered.output:
 
 -- code: Title of the code block
 lang: ftd
 copy: true
 download: sample.ftd
 
+\-- ftd.text: Some title
+role: $inherited.types.copy-regular
+color: $inherited.colors.text
+
+-- end: rendered.output
+
+-- end: rendered
+
+-- tf.h3: Additional attribute `copy` (by default `true`)
+
+-- rendered:
+
+-- rendered.input:
+
 \-- cb.code: Title for the code block
 lang: ftd
-copy: true
-download: sample.ftd
 
 \-- ftd.text: Some title
 role: $inherited.types.copy-regular
 color: $inherited.colors.text
 
--- tf.h3: Additional attribute `copy`:
+-- rendered.output:
 
 -- code: Title for the code block
 lang: ftd
-copy: false
 
-\-- cb.code: Title for the code block
+\-- ftd.text: Some title
+role: $inherited.types.copy-regular
+color: $inherited.colors.text
+
+-- end: rendered.output
+
+-- end: rendered
+
+
+
+-- tf.h3: `copy` false without title:
+
+
+-- rendered:
+
+-- rendered.input:
+
+\-- cb.code:
 lang: ftd
 copy: false
 
@@ -91,7 +135,7 @@ copy: false
 role: $inherited.types.copy-regular
 color: $inherited.colors.text
 
--- tf.h3: `copy` false without title:
+-- rendered.output:
 
 -- code:
 lang: ftd
@@ -101,29 +145,90 @@ copy: false
 role: $inherited.types.copy-regular
 color: $inherited.colors.text
 
+-- end: rendered.output
+
+
+-- end: rendered
+
+
+
 -- tf.h3: `copy` false with title:
+
+-- rendered:
+
+-- rendered.input:
+
+\-- cb.code: Some title
+lang: ftd
+copy: false
+
+\-- ftd.text: Some title
+role: $inherited.types.copy-regular
+color: $inherited.colors.text
+
+-- rendered.output:
 
 -- code: Some title
 lang: ftd
 copy: false
 
+\-- ftd.text: Some title
+role: $inherited.types.copy-regular
+color: $inherited.colors.text
+
+-- end: rendered.output
+
+-- end: rendered
+
+
+
+-- tf.h3: `copy` true without title:
+
+-- rendered:
+
+-- rendered.input:
+
+\-- cb.code: 
+lang: ftd
+copy: true
 
 \-- ftd.text: Some title
 role: $inherited.types.copy-regular
 color: $inherited.colors.text
 
--- tf.h3: `copy` true without title:
+-- rendered.output:
 
 -- code: 
 lang: ftd
 copy: true
 
+\-- ftd.text: Some title
+role: $inherited.types.copy-regular
+color: $inherited.colors.text
+
+-- end: rendered.output
+
+-- end: rendered
+
+
+
+-- tf.h3: `download` attribute  without title:
+
+-- rendered:
+download: sample.ftd
+
+-- rendered.input:
+
+\-- cb.code: 
+lang: ftd
+copy: false
+download: sample.ftd
 
 \-- ftd.text: Some title
 role: $inherited.types.copy-regular
 color: $inherited.colors.text
 
--- tf.h3: `download` attribute  without title:
+-- rendered.output:
 
 -- code: 
 lang: ftd
@@ -134,7 +239,26 @@ download: sample.ftd
 role: $inherited.types.copy-regular
 color: $inherited.colors.text
 
+-- end: rendered.output
+
+-- end: rendered
+
 -- tf.h3: `download` attribute  and `copy` true  without title:
+
+-- rendered:
+
+-- rendered.input:
+
+\-- cb.code: 
+lang: ftd
+copy: true
+download: sample.ftd
+
+\-- ftd.text: Some title
+role: $inherited.types.copy-regular
+color: $inherited.colors.text
+
+-- rendered.output:
 
 -- code: 
 lang: ftd
@@ -145,10 +269,21 @@ download: sample.ftd
 role: $inherited.types.copy-regular
 color: $inherited.colors.text
 
+-- end: rendered.output
+
+-- end: rendered
+
+
 -- tf.h3: Using `rendered` component
 
 We have introduced `rendered` component, which you can use to show rendered output
 of your code including it in `rendered.input` as body of `rendered` component.
+
+In below example though we added `copy: true` attribute, but its
+`true` by default. So, no need to add this attribute while using `rendered` 
+component.
+
+`download: <file-name>` attribute is optional. Add it only where required.
 
 How to use:
 
@@ -358,10 +493,6 @@ ftd.ui list output:
 
 -- ftd.column:
 width: fill-container
-;;background.solid: $inherited.colors.background.overlay
-;;padding.px: 10
-;;border-color: $inherited.colors.border
-;;border-width.px: 1
 
 -- ftd.text: Input:
 role: $inherited.types.copy-regular
@@ -482,7 +613,5 @@ background.solid: $inherited.colors.background.step-1
 -- end: ftd.column
 
 -- end: ftd.column
-
-
 
 -- end: rendered
