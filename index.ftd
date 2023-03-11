@@ -27,9 +27,10 @@ How to use?
 -- code: Add this to your FASTN.ftd
 lang: ftd
 
-\-- fastn.dependency: fifthtry.github.io/code-block as cb
+\-- fastn.dependency: fifthtry.github.io/code-block
 
-\-- fastn.auto-import: cb
+\-- fastn.auto-import: fifthtry.github.io/code-block as cb
+
 
 -- pd.component: `cb.code` Basic usage example
 name: `-- cb.code:`
@@ -363,6 +364,8 @@ width: fill-container
 $on-mouse-enter$: $ftd.set-bool($a = $code.mouse-in, v = true)
 $on-mouse-leave$: $ftd.set-bool($a = $code.mouse-in, v = false)
 cursor: default
+max-height.fixed.px: 400
+overflow-y: auto
 
 -- ftd.row:
 if: { code.caption != NULL || code.download != NULL || code.copy }
@@ -511,6 +514,8 @@ width: fill-container
 $on-mouse-enter$: $ftd.set-bool($a = $rendered.mouse-in, v = true)
 $on-mouse-leave$: $ftd.set-bool($a = $rendered.mouse-in, v = false)
 cursor: default
+max-height.fixed.px: 400
+overflow-y: auto
 
 -- ftd.row:
 if: { rendered.copy }
