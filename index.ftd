@@ -510,6 +510,7 @@ color: $inherited.colors.text.dark
 
 -- component rendered:
 optional string download:
+optional caption title:
 body input:
 boolean copy: true
 string $copy-text: null
@@ -522,6 +523,12 @@ ftd.ui list output:
 
 -- ftd.column:
 width: fill-container
+
+-- ftd.text: $rendered.title
+role: $inherited.types.heading-tiny
+color: $inherited.colors.text-strong
+margin-bottom.px: 20
+if: { rendered.title != NULL }
 
 -- ftd.text: Input:
 role: $inherited.types.copy-regular
