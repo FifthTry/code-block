@@ -590,6 +590,7 @@ $on-click$: $download-text(filename = $rendered.download, text = $rendered.input
 
 
 -- ftd.code:
+if: { ftd.dark-mode }
 text: $rendered.input
 lang: ftd
 width: fill-container
@@ -599,7 +600,7 @@ padding-top.px: 10
 padding-left.px: 20
 padding-bottom.px: 10
 padding-right.px: 20
-background.solid: $inherited.colors.background.code
+background.solid: #2b303b
 border-top-left-radius.px: 4
 border-top-right-radius.px: 4
 border-bottom-left-radius.px: 4
@@ -609,8 +610,32 @@ overflow-y: auto
 max-height.fixed.px if { rendered.max-height != NULL }: $rendered.max-height
 max-width.fixed.px if { rendered.max-width != NULL }: $rendered.max-width
 
+
+
+-- ftd.code:
+if: { !ftd.dark-mode }
+text: $rendered.input
+lang: ftd
+width: fill-container
+role: $inherited.types.copy-regular
+color: $inherited.colors.text
+padding-top.px: 10
+padding-left.px: 20
+padding-bottom.px: 10
+padding-right.px: 20
+background.solid: #eff1f5
+border-top-left-radius.px: 4
+border-top-right-radius.px: 4
+border-bottom-left-radius.px: 4
+border-bottom-right-radius.px: 4
+overflow-x: auto
+overflow-y: auto
+max-height.fixed.px if { rendered.max-height != NULL }: $rendered.max-height
+max-width.fixed.px if { rendered.max-width != NULL }: $rendered.max-width
+
+
 -- ftd.column:
-if: {$rendered.download != NULL}
+if: { rendered.download != NULL }
 anchor: parent
 right.px: 0
 bottom.px: 0
