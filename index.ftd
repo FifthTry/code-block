@@ -354,8 +354,8 @@ string $copy-text: null
 boolean $copy-mouse-in: false
 boolean $download-mouse-in: false
 boolean $mouse-in: false
-optional integer max-height:
-optional integer max-width:
+optional ftd.resizing max-height:
+optional ftd.resizing max-width:
 
 -- ftd.column:
 padding-bottom.px: 12
@@ -364,7 +364,6 @@ width: fill-container
 $on-mouse-enter$: $ftd.set-bool($a = $code.mouse-in, v = true)
 $on-mouse-leave$: $ftd.set-bool($a = $code.mouse-in, v = false)
 cursor: default
-max-height.fixed.px: 400
 overflow-y: auto
 
 -- ftd.row:
@@ -453,8 +452,8 @@ border-bottom-left-radius.px if { code.caption == NULL }: 4
 border-bottom-right-radius.px if { code.caption == NULL }: 4
 overflow-x: auto
 overflow-y: auto
-max-height.fixed.px if { code.max-height != NULL }: $code.max-height
-max-width.fixed.px if { code.max-width != NULL }: $code.max-width
+max-height if { code.max-height != NULL }: $code.max-height
+max-width if { code.max-width != NULL }: $code.max-width
 
 
 -- ftd.code:
@@ -475,8 +474,8 @@ border-bottom-left-radius.px if { code.caption == NULL }: 4
 border-bottom-right-radius.px if { code.caption == NULL }: 4
 overflow-x: auto
 overflow-y: auto
-max-height.fixed.px if { code.max-height != NULL }: $code.max-height
-max-width.fixed.px if { code.max-width != NULL }: $code.max-width
+max-height if { code.max-height != NULL }: $code.max-height
+max-width if { code.max-width != NULL }: $code.max-width
 theme: base16-ocean.light
 
 -- ftd.column:
@@ -517,8 +516,8 @@ string $copy-text: null
 boolean $copy-mouse-in: false
 boolean $download-mouse-in: false
 boolean $mouse-in: false
-optional integer max-height:
-optional integer max-width:
+optional ftd.resizing max-height:
+optional ftd.resizing max-width:
 ftd.ui list output:
 
 -- ftd.column:
@@ -538,7 +537,6 @@ width: fill-container
 $on-mouse-enter$: $ftd.set-bool($a = $rendered.mouse-in, v = true)
 $on-mouse-leave$: $ftd.set-bool($a = $rendered.mouse-in, v = false)
 cursor: default
-max-height.fixed.px: 400
 overflow-y: auto
 
 -- ftd.row:
@@ -607,8 +605,8 @@ border-bottom-left-radius.px: 4
 border-bottom-right-radius.px: 4
 overflow-x: auto
 overflow-y: auto
-max-height.fixed.px if { rendered.max-height != NULL }: $rendered.max-height
-max-width.fixed.px if { rendered.max-width != NULL }: $rendered.max-width
+max-height if { rendered.max-height != NULL }: $rendered.max-height
+max-width if { rendered.max-width != NULL }: $rendered.max-width
 
 
 
@@ -630,8 +628,8 @@ border-bottom-left-radius.px: 4
 border-bottom-right-radius.px: 4
 overflow-x: auto
 overflow-y: auto
-max-height.fixed.px if { rendered.max-height != NULL }: $rendered.max-height
-max-width.fixed.px if { rendered.max-width != NULL }: $rendered.max-width
+max-height if { rendered.max-height != NULL }: $rendered.max-height
+max-width if { rendered.max-width != NULL }: $rendered.max-width
 theme: base16-ocean.light
 
 -- ftd.column:
