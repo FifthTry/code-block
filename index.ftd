@@ -632,7 +632,7 @@ overflow-x: auto
 overflow-y: auto
 max-height.fixed.px if { rendered.max-height != NULL }: $rendered.max-height
 max-width.fixed.px if { rendered.max-width != NULL }: $rendered.max-width
-
+theme: base16-ocean.light
 
 -- ftd.column:
 if: { rendered.download != NULL }
