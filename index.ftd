@@ -436,6 +436,7 @@ $on-click$: $download-text(filename = $code.download, text = $code.body)
 -- end: ftd.row
 
 -- ftd.code:
+if: { ftd.dark-mode }
 text: $code.body
 lang: $code.lang
 width: fill-container
@@ -445,7 +446,7 @@ padding-top.px: 10
 padding-left.px: 20
 padding-bottom.px: 10
 padding-right.px: 20
-background.solid: $inherited.colors.background.code
+background.solid: #2b303b
 border-top-left-radius.px if { code.caption == NULL }: 4
 border-top-right-radius.px if { code.caption == NULL }: 4
 border-bottom-left-radius.px if { code.caption == NULL }: 4
@@ -455,8 +456,31 @@ overflow-y: auto
 max-height.fixed.px if { code.max-height != NULL }: $code.max-height
 max-width.fixed.px if { code.max-width != NULL }: $code.max-width
 
+
+-- ftd.code:
+if: { !ftd.dark-mode }
+text: $code.body
+lang: $code.lang
+width: fill-container
+role: $inherited.types.copy-regular
+color: $inherited.colors.text
+padding-top.px: 10
+padding-left.px: 20
+padding-bottom.px: 10
+padding-right.px: 20
+background.solid: #eff1f5
+border-top-left-radius.px if { code.caption == NULL }: 4
+border-top-right-radius.px if { code.caption == NULL }: 4
+border-bottom-left-radius.px if { code.caption == NULL }: 4
+border-bottom-right-radius.px if { code.caption == NULL }: 4
+overflow-x: auto
+overflow-y: auto
+max-height.fixed.px if { code.max-height != NULL }: $code.max-height
+max-width.fixed.px if { code.max-width != NULL }: $code.max-width
+theme: base16-ocean.light
+
 -- ftd.column:
-if: {$code.download != NULL}
+if: { code.download != NULL }
 anchor: parent
 right.px: 0
 bottom.px: 12
