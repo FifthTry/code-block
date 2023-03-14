@@ -446,7 +446,7 @@ padding-top.px: 10
 padding-left.px: 20
 padding-bottom.px: 10
 padding-right.px: 20
-background.solid: #2b303b
+background.solid: $inherited.colors.background.code
 border-top-left-radius.px if { code.caption == NULL }: 4
 border-top-right-radius.px if { code.caption == NULL }: 4
 border-bottom-left-radius.px if { code.caption == NULL }: 4
@@ -468,7 +468,7 @@ padding-top.px: 10
 padding-left.px: 20
 padding-bottom.px: 10
 padding-right.px: 20
-background.solid: #eff1f5
+background.solid: $inherited.colors.background.code
 border-top-left-radius.px if { code.caption == NULL }: 4
 border-top-right-radius.px if { code.caption == NULL }: 4
 border-bottom-left-radius.px if { code.caption == NULL }: 4
@@ -600,7 +600,7 @@ padding-top.px: 10
 padding-left.px: 20
 padding-bottom.px: 10
 padding-right.px: 20
-background.solid: #2b303b
+background.solid: $inherited.colors.background.code
 border-top-left-radius.px: 4
 border-top-right-radius.px: 4
 border-bottom-left-radius.px: 4
@@ -623,7 +623,7 @@ padding-top.px: 10
 padding-left.px: 20
 padding-bottom.px: 10
 padding-right.px: 20
-background.solid: #eff1f5
+background.solid: $inherited.colors.background.code
 border-top-left-radius.px: 4
 border-top-right-radius.px: 4
 border-bottom-left-radius.px: 4
