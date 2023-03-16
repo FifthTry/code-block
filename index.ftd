@@ -526,6 +526,7 @@ string clean-code: $ftd.clean-code(a = $rendered.input, lang = ftd)
 
 -- ftd.column:
 width: fill-container
+padding.px: 20
 
 -- ftd.text: $rendered.title
 role: $inherited.types.heading-tiny
@@ -533,14 +534,13 @@ color: $inherited.colors.text-strong
 margin-bottom.px: 20
 if: { rendered.title != NULL }
 
--- ftd.text: Input:
+-- ftd.text: Input
 role: $inherited.types.copy-regular
 color: $inherited.colors.text
-padding-bottom.px: 10
 width: fill-container
 border-color: $inherited.colors.border
 border-bottom-width.px: 1
-margin-bottom.px: 10
+text-align: end
 
 -- ftd.column:
 width: fill-container
@@ -609,8 +609,6 @@ padding-left.px: 20
 padding-bottom.px: 10
 padding-right.px: 20
 background.solid: $inherited.colors.background.code
-border-top-left-radius.px: 4
-border-top-right-radius.px: 4
 border-bottom-left-radius.px: 4
 border-bottom-right-radius.px: 4
 overflow-x: auto
@@ -632,8 +630,6 @@ padding-left.px: 20
 padding-bottom.px: 10
 padding-right.px: 20
 background.solid: $inherited.colors.background.code
-border-top-left-radius.px: 4
-border-top-right-radius.px: 4
 border-bottom-left-radius.px: 4
 border-bottom-right-radius.px: 4
 overflow-x: auto
@@ -660,15 +656,14 @@ color: $inherited.colors.text.dark
 
 -- end: ftd.column
 
--- ftd.text: Rendered:
+-- ftd.text: Output
 role: $inherited.types.copy-regular
 color: $inherited.colors.text
-padding-bottom.px: 10
 border-bottom-width.px: 1
 width: fill-container
 border-color: $inherited.colors.border
-margin-bottom.px: 10
-margin-top.px: 24
+margin-top.px: 8
+text-align: end
 
 -- ftd.column:
 width: fill-container
