@@ -526,7 +526,7 @@ string clean-code: $ftd.clean-code(a = $rendered.input, lang = ftd)
 
 -- ftd.column:
 width: fill-container
-padding.px: 20
+padding-bottom.px: 20
 
 -- ftd.text: $rendered.title
 role: $inherited.types.heading-tiny
