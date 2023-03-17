@@ -518,12 +518,12 @@ string clean-code: $ftd.clean-code(a = $rendered.input, lang = ftd)
 
 -- ftd.column:
 width: fill-container
-padding-bottom.px: 20
+padding-bottom.em: 0.8
 
 -- ftd.text: $rendered.title
 role: $inherited.types.heading-tiny
 color: $inherited.colors.text-strong
-margin-bottom.px: 20
+margin-bottom.em: 0.2
 if: { rendered.title != NULL }
 
 -- ftd.text: Input
