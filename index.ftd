@@ -18,6 +18,7 @@ download_text(filename, text)
 
 -- ft.page:
 show-footer: true
+site-name: Code Block
 
 -- ft.page.footer:
 
