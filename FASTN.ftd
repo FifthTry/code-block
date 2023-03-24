@@ -3,7 +3,6 @@
 -- fastn.package: fifthtry.github.io/code-block
 
 -- fastn.dependency: fifthtry.github.io/package-doc as pd
--- fastn.dependency: fifthtry.github.io/footer
 
 
 -- fastn.auto-import: pd
