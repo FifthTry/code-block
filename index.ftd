@@ -1,8 +1,14 @@
 -- import: fastn
 -- import: fifthtry.github.io/code-block/assets
 -- import: pd/doc as pd
+-- import: pd/typography as tf
 -- import: pd/forest-theme as ft
 -- import: pd/code-block as cb
+-- import: fifthtry.github.io/footer
+-- import: fastn/processors as pr
+
+-- pr.sitemap-data sitemap:
+$processor$: fastn.sitemap
 
 
 
@@ -15,6 +21,17 @@ download_text(filename, text)
 
 
 -- ft.page:
+show-footer: true
+
+-- ft.page.footer:
+
+-- footer.basic-footer:
+footer-list: $sitemap.sections
+site-logo: $ft.site-logo
+site-url: /
+copyright: Copyright © 2023 - [FifthTry](https://github.com/FifthTry)
+
+-- end: ft.page.footer
 
 -- pd.package: Code Block Component for FASTN Packages
 name: fifthtry.github.io/code-block
