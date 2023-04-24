@@ -25,7 +25,7 @@ site-name: Code Block
 -- pd.package: Code Block Component for FASTN Packages
 name: fifthtry.github.io/code-block
 
-The `code-block` package( fifthtry.github.io/code-block ). Use inside `FTD`
+The `code-block` package(fifthtry.github.io/code-block). Use inside `FTD`
 files for your web pages.
 
 How to use?
@@ -96,7 +96,7 @@ color: $inherited.colors.text
 
 -- end: rendered
 
--- tf.h3: Additional attribute `copy` ( by default `true` )
+-- tf.h3: Additional attribute `copy` (by default `true`)
 
 -- rendered:
 
@@ -348,14 +348,14 @@ boolean $download-mouse-in: false
 boolean $mouse-in: false
 optional ftd.resizing max-height:
 optional ftd.resizing max-width:
-string clean-code: $ftd.clean-code( a = $code.body, lang = $code.lang )
+string clean-code: $ftd.clean-code(a = $code.body, lang = $code.lang)
 
 -- ftd.column:
 padding-bottom.px: 12
 padding-top.px: 12
 width: fill-container
-$on-mouse-enter$: $ftd.set-bool( $a = $code.mouse-in, v = true )
-$on-mouse-leave$: $ftd.set-bool( $a = $code.mouse-in, v = false )
+$on-mouse-enter$: $ftd.set-bool($a = $code.mouse-in, v = true)
+$on-mouse-leave$: $ftd.set-bool($a = $code.mouse-in, v = false)
 cursor: default
 overflow-y: auto
 
@@ -383,7 +383,7 @@ if: { code.copy }
 spacing.fixed.px: 10
 align-content: right
 align-self: end
-$on-mouse-leave$: $ftd.set-string( $a = $code.copy-text, v = null )
+$on-mouse-leave$: $ftd.set-string($a = $code.copy-text, v = null)
 anchor: parent
 top.px: 12
 right.px: 20
@@ -393,10 +393,10 @@ right.px if { code.download != NULL }: 56
 if: { code.copy-text == "null" && code.mouse-in }
 src: $assets.files.static.copy.svg
 src if { code.copy-mouse-in }: $assets.files.static.copy-hover.svg
-$on-mouse-enter$: $ftd.set-bool( $a = $code.copy-mouse-in, v = true )
-$on-mouse-leave$: $ftd.set-bool( $a = $code.copy-mouse-in, v = false )
-$on-click$: $ftd.copy-to-clipboard( a = $code.clean-code )
-$on-click$: $ftd.set-string( $a = $code.copy-text, v = Copied! )
+$on-mouse-enter$: $ftd.set-bool($a = $code.copy-mouse-in, v = true)
+$on-mouse-leave$: $ftd.set-bool($a = $code.copy-mouse-in, v = false)
+$on-click$: $ftd.copy-to-clipboard(a = $code.clean-code)
+$on-click$: $ftd.set-string($a = $code.copy-text, v = Copied!)
 width.fixed.px: 18
 
 -- ftd.image:
@@ -421,9 +421,9 @@ align-self: end
 anchor: parent
 top.px: 12
 right.px: 20
-$on-mouse-enter$: $ftd.set-bool( $a = $code.download-mouse-in, v = true )
-$on-mouse-leave$: $ftd.set-bool( $a = $code.download-mouse-in, v = false )
-$on-click$: $download-text( filename = $code.download, text = $code.clean-code )
+$on-mouse-enter$: $ftd.set-bool($a = $code.download-mouse-in, v = true)
+$on-mouse-leave$: $ftd.set-bool($a = $code.download-mouse-in, v = false)
+$on-click$: $download-text(filename = $code.download, text = $code.clean-code)
 
 -- end: ftd.row
 
@@ -502,7 +502,7 @@ boolean $mouse-in: false
 optional ftd.resizing max-height:
 optional ftd.resizing max-width:
 ftd.ui list output:
-string clean-code: $ftd.clean-code( a = $rendered.input, lang = ftd )
+string clean-code: $ftd.clean-code(a = $rendered.input, lang = ftd)
 
 -- ftd.column:
 width: fill-container
@@ -524,8 +524,8 @@ text-align: end
 
 -- ftd.column:
 width: fill-container
-$on-mouse-enter$: $ftd.set-bool( $a = $rendered.mouse-in, v = true )
-$on-mouse-leave$: $ftd.set-bool( $a = $rendered.mouse-in, v = false )
+$on-mouse-enter$: $ftd.set-bool($a = $rendered.mouse-in, v = true)
+$on-mouse-leave$: $ftd.set-bool($a = $rendered.mouse-in, v = false)
 cursor: default
 overflow-y: auto
 
@@ -534,7 +534,7 @@ if: { rendered.copy }
 spacing.fixed.px: 10
 align-content: right
 align-self: end
-$on-mouse-leave$: $ftd.set-string( $a = $rendered.copy-text, v = null )
+$on-mouse-leave$: $ftd.set-string($a = $rendered.copy-text, v = null)
 anchor: parent
 top.px: 12
 right.px: 20
@@ -544,10 +544,10 @@ right.px if { rendered.download != NULL }: 56
 if: { rendered.copy-text == "null" && rendered.mouse-in }
 src: $assets.files.static.copy.svg
 src if { rendered.copy-mouse-in }: $assets.files.static.copy-hover.svg
-$on-mouse-enter$: $ftd.set-bool( $a = $rendered.copy-mouse-in, v = true )
-$on-mouse-leave$: $ftd.set-bool( $a = $rendered.copy-mouse-in, v = false )
-$on-click$: $ftd.copy-to-clipboard( a = $rendered.clean-code )
-$on-click$: $ftd.set-string( $a = $rendered.copy-text, v = Copied! )
+$on-mouse-enter$: $ftd.set-bool($a = $rendered.copy-mouse-in, v = true)
+$on-mouse-leave$: $ftd.set-bool($a = $rendered.copy-mouse-in, v = false)
+$on-click$: $ftd.copy-to-clipboard(a = $rendered.clean-code)
+$on-click$: $ftd.set-string($a = $rendered.copy-text, v = Copied!)
 width.fixed.px: 18
 
 -- ftd.image:
@@ -572,9 +572,9 @@ align-self: end
 anchor: parent
 top.px: 12
 right.px: 20
-$on-mouse-enter$: $ftd.set-bool( $a = $rendered.download-mouse-in, v = true )
-$on-mouse-leave$: $ftd.set-bool( $a = $rendered.download-mouse-in, v = false )
-$on-click$: $download-text( filename = $rendered.download, text = $rendered.clean-code )
+$on-mouse-enter$: $ftd.set-bool($a = $rendered.download-mouse-in, v = true)
+$on-mouse-leave$: $ftd.set-bool($a = $rendered.download-mouse-in, v = false)
+$on-click$: $download-text(filename = $rendered.download, text = $rendered.clean-code)
 
 -- ftd.code:
 if: { ftd.dark-mode }
