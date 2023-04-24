@@ -6,15 +6,11 @@
 -- import: pd/forest-theme as ft
 -- import: pd/code-block as cb
 
-
-
 -- void download-text(filename,text):
 string filename:
 string text:
 
 download_text(filename, text)
-
-
 
 -- ft.page:
 show-footer: true
@@ -29,8 +25,8 @@ site-name: Code Block
 -- pd.package: Code Block Component for FASTN Packages
 name: fifthtry.github.io/code-block
 
-The `code-block` package(fifthtry.github.io/code-block). Use inside `FTD` files
-for your web pages.
+The `code-block` package(fifthtry.github.io/code-block). Use inside `FTD`
+files for your web pages.
 
 How to use?
 
@@ -40,7 +36,6 @@ lang: ftd
 \-- fastn.dependency: fifthtry.github.io/code-block
 
 \-- fastn.auto-import: fifthtry.github.io/code-block as cb
-
 
 -- pd.component: `cb.code` Basic usage example
 name: `-- cb.code:`
@@ -58,7 +53,6 @@ lang: ftd
 role: $inherited.types.copy-regular
 color: $inherited.colors.text
 
-
 -- rendered.output:
 
 -- code: Title for the code block
@@ -71,7 +65,6 @@ color: $inherited.colors.text
 -- end: rendered.output
 
 -- end: rendered
-
 
 -- tf.h3: Additional attribute `download`:
 
@@ -129,10 +122,7 @@ color: $inherited.colors.text
 
 -- end: rendered
 
-
-
 -- tf.h3: `copy` false without title:
-
 
 -- rendered:
 
@@ -158,10 +148,7 @@ color: $inherited.colors.text
 
 -- end: rendered.output
 
-
 -- end: rendered
-
-
 
 -- tf.h3: `copy` false with title:
 
@@ -191,8 +178,6 @@ color: $inherited.colors.text
 
 -- end: rendered
 
-
-
 -- tf.h3: `copy` true without title:
 
 -- rendered:
@@ -221,9 +206,7 @@ color: $inherited.colors.text
 
 -- end: rendered
 
-
-
--- tf.h3: `download` attribute  without title:
+-- tf.h3: `download` attribute without title:
 
 -- rendered:
 download: sample.ftd
@@ -254,7 +237,7 @@ color: $inherited.colors.text
 
 -- end: rendered
 
--- tf.h3: `download` attribute  and `copy` true  without title:
+-- tf.h3: `download` attribute and `copy` true without title:
 
 -- rendered:
 
@@ -283,16 +266,15 @@ color: $inherited.colors.text
 -- end: rendered.output
 
 -- end: rendered
-
 
 -- tf.h3: Using `rendered` component
 
-We have introduced `rendered` component, which you can use to show rendered output
-of your code including it in `rendered.input` as body of `rendered` component.
-
-In below example though we added `copy: true` attribute, but its
-`true` by default. So, no need to add this attribute while using `rendered` 
+We have introduced `rendered` component, which you can use to show rendered
+output of your code including it in `rendered.input` as body of `rendered`
 component.
+
+In below example though we added `copy: true` attribute, but its `true` by
+default. So, no need to add this attribute while using `rendered` component.
 
 `download: <file-name>` attribute is optional. Add it only where required.
 
@@ -368,7 +350,6 @@ optional ftd.resizing max-height:
 optional ftd.resizing max-width:
 string clean-code: $ftd.clean-code(a = $code.body, lang = $code.lang)
 
-
 -- ftd.column:
 padding-bottom.px: 12
 padding-top.px: 12
@@ -431,7 +412,7 @@ color: $inherited.colors.border
 -- end: ftd.row
 
 -- ftd.image:
-if: { code.download != NULL  && code.mouse-in }
+if: { code.download != NULL && code.mouse-in }
 src: $assets.files.static.download.svg
 src if { code.download-mouse-in }: $assets.files.static.download-hover.svg
 width.fixed.px: 20
@@ -462,7 +443,6 @@ overflow-x: auto
 overflow-y: auto
 max-height if { code.max-height != NULL }: $code.max-height
 max-width if { code.max-width != NULL }: $code.max-width
-
 
 -- ftd.code:
 if: { !ftd.dark-mode }
@@ -510,8 +490,6 @@ color: $inherited.colors.text.dark
 
 
 
-
-
 -- component rendered:
 optional string download:
 optional caption title:
@@ -531,10 +509,10 @@ width: fill-container
 padding-bottom.em: 0.8
 
 -- ftd.text: $rendered.title
+if: { rendered.title != NULL }
 role: $inherited.types.heading-tiny
 color: $inherited.colors.text-strong
 margin-bottom.em: 0.2
-if: { rendered.title != NULL }
 
 -- ftd.text: Input
 role: $inherited.types.copy-regular
@@ -585,7 +563,7 @@ color: $inherited.colors.border
 -- end: ftd.row
 
 -- ftd.image:
-if: { rendered.download != NULL  && rendered.mouse-in }
+if: { rendered.download != NULL && rendered.mouse-in }
 src: $assets.files.static.download.svg
 src if { rendered.download-mouse-in }: $assets.files.static.download-hover.svg
 width.fixed.px: 20
@@ -597,7 +575,6 @@ right.px: 20
 $on-mouse-enter$: $ftd.set-bool($a = $rendered.download-mouse-in, v = true)
 $on-mouse-leave$: $ftd.set-bool($a = $rendered.download-mouse-in, v = false)
 $on-click$: $download-text(filename = $rendered.download, text = $rendered.clean-code)
-
 
 -- ftd.code:
 if: { ftd.dark-mode }
@@ -613,8 +590,6 @@ overflow-x: auto
 overflow-y: auto
 max-height if { rendered.max-height != NULL }: $rendered.max-height
 max-width if { rendered.max-width != NULL }: $rendered.max-width
-
-
 
 -- ftd.code:
 if: { !ftd.dark-mode }
@@ -646,7 +621,6 @@ role: $inherited.types.fine-print
 color: $inherited.colors.text.dark
 
 -- end: ftd.column
-
 
 -- end: ftd.column
 
